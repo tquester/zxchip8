@@ -1,0 +1,6 @@
+input1=spritetool8000.bin
+org1=8000
+input2=spritetool9000.bin
+org2=9000
+output=spritetoolr.bin
+reloc=relocz80.bin
