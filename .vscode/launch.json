@@ -1,0 +1,45 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "dezog",
+            "request": "launch",
+            "name": "Internal Simulator",
+            "remoteType": "zsim",
+            //"remoteType": "zrcp",
+            //"remoteType": "cspect",
+            "sjasmplus": [
+                {
+                    "path": "z80-sample-program.sld"
+                }
+            ],
+            "zsim": {
+                "visualMemory": true,
+                "memoryModel": "ZXNEXT",
+                "ulaScreen": true,
+                "zxBorderWidth": 20,
+                "vsyncInterrupt": true,
+                "zxKeyboard": true,
+                "zxBeeper": true
+            },
+            
+            "history": {
+                "reverseDebugInstructionCount": 1000000,
+                "spotCount": 10,
+                "codeCoverageEnabled": true
+            },
+            "startAutomatically": true,
+            "commandsAfterLaunch": [
+            ],
+            "rootFolder": "${workspaceFolder}",
+            "topOfStack": "6000",
+            //"load": "z80-sample-program.sna",
+            "load": "z80-sample-program.nex",
+            "smallValuesMaximum": 513,
+            "tmpDir": ".tmp"
+        },
+
+    
+
+    ]
+}

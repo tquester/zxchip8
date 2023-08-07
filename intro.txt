@@ -1,0 +1,13 @@
+ZX Chip 8 Emulator
+(C) 2023 Thomas Quester
+-------------------------------
+https://github.com/tquester/
+zxchip8
+
+Press M for Menu 
+Press 0 for Debug
+
+In order to install new games
+you need c8tapegen, install it
+from the github page.
+
