@@ -28,7 +28,7 @@ romCollection: EQU 0x0000A8B2
 stack_top: EQU 0x0000A8B2
 stack_bottom: EQU 0x0000A6BE
 initGameInfo: EQU 0x0000A5C4
-chip8InitGameLen: EQU 0x00000E83
+chip8InitGameLen: EQU 0x000007C8
 fontsize: EQU 0x000000F0
 ballsprite: EQU 0x00008BAF
 skipStringHLLoop: EQU 0x00008BA7

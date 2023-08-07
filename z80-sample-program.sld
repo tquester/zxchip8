@@ -5740,8 +5740,8 @@ chip8emu.asm|172||0|4|38420|F|bigfont
 chip8emu.asm|172||0|4|38420|L|,bigfont,,+used
 chip8emu.asm|189||0|-1|240|D|fontsize
 chip8emu.asm|189||0|-1|240|L|,fontsize,,+equ,+used
-chip8emu.asm|227||0|-1|3715|D|chip8InitGameLen
-chip8emu.asm|227||0|-1|3715|L|,chip8InitGameLen,,+equ,+used
+chip8emu.asm|227||0|-1|1992|D|chip8InitGameLen
+chip8emu.asm|227||0|-1|1992|L|,chip8InitGameLen,,+equ,+used
 chip8emu.asm|231||0|5|42436|F|initGameInfo
 chip8emu.asm|231||0|5|42436|L|,initGameInfo,,+used
 chip8emu.asm|235||0|5|42684|F|gameInfo
