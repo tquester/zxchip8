@@ -1,6 +1,6 @@
 
 chip8Menu:
-
+        di
         call    clearScreen
         ld      bc,$0800
         call    printSetAt
@@ -11,6 +11,9 @@ chip8Menu:
         call    printtext
         db      "Thomas Quester, Jun 2023",0
 
+
+        call    getTextUpdate
+        push    hl
         ld      a,(cpu_new_shift)
         call    yesno
         push    hl
@@ -19,7 +22,7 @@ chip8Menu:
         push    hl
         ld      a,(chip8_screen_mode)
         and     SCREEN_MODE_NO_ZOOM
-        xor     1
+        xor     4
         call    yesno
         push    hl
 chip8MenuZoom:
@@ -36,7 +39,8 @@ chip8MenuZoom:
         db      "W/tCPU Slowdown %ld/n"
         db      "O/tZoom mode/t/t%s/n"
         db      "1/tNew ADD I,vx/t%s/n"
-        db      "2/tNew Shift/t/t%s/n/n"
+        db      "2/tNew Shift/t/t%s/n"
+        db      "3/t%s/n/n"
         db      "Q/tReturn to game/n/n",0
 
 chip8MenuLoop:
@@ -62,6 +66,8 @@ chip8MenuLoop:
         jr      z,menuModifyAddI
         cp      '2'
         jr      z,menuModifyShift
+        cp      '3'
+        jp      z,menuChangeUpdate
 
         jr      chip8MenuLoop
 
@@ -89,6 +95,7 @@ menuQuitToGame:
         call    clearScreen
         call    updateGameScreen    
         call    printMenuHint    
+        ei
         ret
 
 menuResetGame:                
@@ -129,10 +136,48 @@ selectGame:
 printMenuHint:
     ld      a,(debug_go)
     cp      DEBUG_STEP
-    jr      nz, printMenuHintBig
+    jp      nz, printMenuHintBig
     call    printf
     db      "%@0618M xMenu 0 Debug 5 Reset I Info",0
     ret 
+
+getTextUpdate:
+        ld      hl,txtUpdateDirect
+        ld      a,(updateOnInterrupt)
+        cp      0
+        ret     z
+        ld      a,(screenSkipFrames)
+        add     a,48
+        ld      (txtUpdateInterruptNr),a
+        ld      hl,txtUpdateInterrupt
+        ret
+
+menuChangeUpdate:
+        ld      a,(updateOnInterrupt)
+        cp      0
+        jr      nz,menuChangeUpdate1
+        ld      a,1
+        ld      (updateOnInterrupt),a
+        jp      chip8Menu
+menuChangeUpdate1:
+        ld      a,(screenSkipFrames)
+        inc     a
+        ld      (screenSkipFrames),a
+        cp      5
+        jp      nz,chip8Menu
+        ld      a,1
+        ld      (screenSkipFrames),a
+        ld      a,0
+        ld      (updateOnInterrupt),a
+        jp      chip8Menu
+
+txtUpdateDirect:
+        db      "Direkt screen drawing",0
+txtUpdateInterrupt:
+        db      "Update each "
+txtUpdateInterruptNr
+        db      "1"
+        db      " vsync",0                
 
 yesno:  cp      0
         jr      z,yesno_no

@@ -1,7 +1,7 @@
 debugcpu        equ 1
-breakonunknown  equ 0
+breakonunknown  equ 1
 STARTMODE       equ DEBUG_RUN
-fakeinterrupt   equ 20         ; all x commands
+fakeinterrupt   equ 0         ; all x commands
 reg_v0          equ 0
 reg_v1          equ 1
 reg_v2          equ 2
@@ -211,23 +211,33 @@ cpuJumpTable:
     dw      chip8timers         ; F
 
 
+vinterruptcheckKey:
+        ld      a,20
+        ld      (cpu_registers+reg_fakeir),a
+        jp    cpuCheckKey
+
 ; called from the interrupt service or the fake ir    
 vinterrupt:
+        if fakeinterrupt > 0
         call    cpuCheckKey
+        endif
 
-        ld  a,(ix+reg_delay)
-        cp  0
-        jr  z, vinterrupt_1
-        dec     (ix+reg_delay)
+        ld      a,(cpu_registers+reg_delay)
+        cp      0
+        jr      z, vinterrupt_1
+        dec     a
+        ld     (cpu_registers+reg_delay),a
 vinterrupt_1:
-        ld  a,(ix+reg_sound)
-        cp  0
-        jr  z,vinterrupt_2
-        dec     (ix+reg_sound)
-vinterrupt_2:        
+        ld      a,(cpu_registers+reg_sound)
+        cp      0
+        jr      z,vinterrupt_2
+        dec     a
+        ld      (ix+reg_sound),a
+vinterrupt_2:       
+        if fakeinterrupt > 0
         ld      a,fakeinterrupt
-        ld      (ix+reg_fakeir),a
-
+        ld      (cpu_registers+reg_fakeir),a
+        endif
         ret    
 
 skip:   ld      a,(ix+reg_cpuStepOverBreakpointNext)
@@ -250,6 +260,11 @@ skiplong:
         inc     iy
         ret
 
+updateScreenOnI:
+    ld      a,0
+    ld      (screenNeedsRedraw),a
+    jp      updateGameScreen
+
 
 chip8cpu:   
     ld      ix,cpu_registers
@@ -265,11 +280,15 @@ chip8cpu:
     ld      (ix+reg_fakeir),a
     endif
 
+
 cpuloop:
 
-    ld      a,(ix+reg_sound)
+    ld      a,(screenNeedsRedraw)
     cp      0
-    call    nz,chip8beep
+;   call    nz, updateScreenOnI
+;    ld      a,(ix+reg_sound)
+;    cp      0
+;    call    nz,chip8beep
 
     ld      a,(ix+reg_quit)
     cp      1
@@ -287,8 +306,12 @@ cpuloop:
     call    nz, cpuDoDebug
     endif
     if fakeinterrupt > 0 
-    dec     (ix+reg_fakeir)
+    dec     (ix+reg_fakeir)    
     call    z, vinterrupt
+    else
+    dec     (ix+reg_fakeir)    
+    call    z, vinterruptcheckKey
+
     endif
     ld      b,(iy)
     inc     iy
@@ -649,7 +672,7 @@ chip8jmp8:      dw      chip8set8       ;       0
                 dw      chip8subxy      ;       5
                 dw      chip8shright    ;       6
                 dw      chip8subyx      ;       7
-                dw      chip8shleft     ;       8
+                dw      chip8illegal    ;       8
                 dw      chip8illegal    ;       9
                 dw      chip8illegal    ;       A
                 dw      chip8illegal    ;       B
@@ -670,6 +693,8 @@ chip8set8:      ld      (hl),c
 chip8or8:       ld      a,c
                 or      b
                 ld      (hl),a
+                xor     a
+                ld      (ix+reg_vf),a
                 ret
 
 ; ----------------- 8xy2 or x= x and y -----------------                  
@@ -677,11 +702,15 @@ chip8or8:       ld      a,c
 chip8and8:      ld      a,c
                 and     b
                 ld      (hl),a
+                xor     a
+                ld      (ix+reg_vf),a
                 ret
 ; ----------------- 8xy3 or x= x xor y -----------------                  
 chip8xor8:      ld      a,c
                 xor     b
                 ld      (hl),a
+                xor     a
+                ld      (ix+reg_vf),a
                 ret
 
 ; ----------------- 8xy4 or x= x add y, vf = carry -----------------                  
@@ -1016,6 +1045,7 @@ chip8f15:       ; delay = vx
                 ret
 chip8f18:       ; timer = vx
                 ld      a,(hl)
+                or      1
                 ld      (ix+reg_sound),a
                 ret
 chip8f1E:       ; i = i + vx

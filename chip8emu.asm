@@ -5,7 +5,7 @@
 DEBUG:  equ 0
 NEX:    equ 1   ;  1=Create nex file, 0=create sna file
 
-START   equ 24500
+START   equ $6000
 
 
 
@@ -84,9 +84,13 @@ main:
    
 
    		di
+
 		PUSHA	
 		PUSH	IX
 		PUSH	IY
+		if fakeinterrupt == 0
+		call	startInterrupts
+		endif
 		call	startMain
 		POP		IY
 		POP		IX
@@ -101,7 +105,7 @@ chip8beep:
 		push	bc
 		push	de
 		ld		hl,2
-		ld		bc,30
+		ld		bc,1
 		call	beep
 		pop		de
 		pop		bc
@@ -111,6 +115,54 @@ chip8beep:
 		; bc = pause (frequency)
 		; hl = duration
 
+startInterrupts:
+		ld		hl,$fe00
+		ld		de,hl
+		inc		de
+		ld            bc, 256
+		; Setup the I register (the high byte of the table)
+		ld            a, h
+		ld            i, a
+		; Set the first entries in the table to $FC
+		ld            a, $FC
+		ld            (hl), a
+		; Copy to all the remaining 256 bytes
+		ldir
+		; Setup IM2 mode
+		im            2
+		ld			hl,$fcfc
+		ld			a,$c3 		; jp
+		ld			(hl),a
+		inc			hl
+		ld			de,isrfunc
+		ld			(hl),de
+		jp			$fcfc
+		im 		2
+		ei
+		ret
+ 
+isrfunc:	
+		di
+		;rst 56
+		push	ix
+		push	iy
+		push	hl
+		push	de
+		push	bc
+		push	af
+		call 	updateScreenInterrupt
+		call	vinterrupt
+		pop		af
+		pop		bc
+		pop		de
+		pop		hl
+		pop		iy
+		pop		ix
+		ei
+		reti
+
+
+	
 
 
 
@@ -190,6 +242,8 @@ fontsize 		equ  $-chip8Font
 
 				defs	$200-fontsize,0
 
+;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
+;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
 	incbin "intro.ch8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/10 Bytes Pattern (by Bjorn Kempen)(2015).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
@@ -209,7 +263,7 @@ fontsize 		equ  $-chip8Font
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/LabVIEW Splash Screen (fix)(by Richard James Lewis)(2019).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Lainchain (by Ashton Harding)(2018).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Kemono Friends logo (by Volgy)(2017).ch8"
-    ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Heart Monitor Demo (by Matthew Mikolay)(2015).ch8"
+   ; incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Heart Monitor Demo (by Matthew Mikolay)(2015).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/8ce 8ttorney Disk1 (by SysL)(2016).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Cave Explorer (by John Earnest))(2014).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/2-alt/Rush Hour [Hap, 2006] (alt).ch8"
@@ -331,7 +385,7 @@ chip8Game11X:
 ; total size of code block
 code_size   EQU     $ - main
 	MakeTape "chip8emu.tap", "zx chip8", START, code_size
-	MakeBinTape "chip8games.tap", "game", romCollection,romCollectionSize
+;	MakeBinTape "chip8games.tap", "game", romCollection,romCollectionSize
 
  IF NEX == 0
         SAVESNA "z80-sample-program.sna", main
