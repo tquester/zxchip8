@@ -123,13 +123,15 @@ updateScreenChip8Loop1:
                 cp      0
                 
                 jr      nz, updateScreenChip8Loop1a
-
+; line is not dirty, so go to next line
                 ld      a,(screen_mag_y)
                 ld      b,a
                 ld      a,(ix+us_var_y)
                 add     b
                 ld      (ix+us_var_y),a
                 ld      a,(screen_widthbytes)
+                inc     a                       ; 8 or 16 bytes plus two padding bytes
+                inc     a
                 ld      e,a
                 add     iy,de
                 pop     bc
@@ -181,9 +183,10 @@ updateScreenChip8Loop4Paint:
                 ldir            
 ; continue with next byte
                 inc     iy
-                pop     bc                              ; pop schleifenzähler
+                pop     bc                              ; pop schleifenzÃ¤hler
                 djnz    updateScreenChip8Loop2  
-
+                inc     iy
+                inc     iy
 ; wie finished one screen line    
                 ld      a,(ix+us_var_y)
 
@@ -251,6 +254,8 @@ updateScreenChip81x1LineLoop:
                 ldir    
                 inc     ix
                 inc     ix
+                inc     hl
+                inc     hl
                 pop     bc
                 djnz    updateScreenChip81x1LineLoop
                 
@@ -565,21 +570,14 @@ spritRowShift0:
 
         ld      a,h
         call    updateSpriteScreen
-        ld      a,e
-        cp      1
-        jr      z, chip8SkipSecondByte
         inc     ix
         ld      a,l
         call    updateSpriteScreen
         dec     ix
-
-       
-
-        ;       next line
-chip8SkipSecondByte:        
-;        call    updateGameScreen
         ld      hl,ix
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
         push    de
         ld      e,a
         ld      d,0
@@ -638,17 +636,19 @@ calcSpriteAdrInChip8Screen:
         ;        b = number of bits to shift
 ; calc the offset into the (super) chip8 screen
 ; calc start of line
-        ld      de, chip8Screen
         ld      a,(screen_width)
         ld      l,c
         ld      h,0
         add     hl,hl   ; *2
+        ld      de,hl
         add     hl,hl   ; *4
         add     hl,hl   ; *8                            ; each row 8 bytes
         cp      64
         jr      z,schip8sprite_calc1
         add     hl,hl   ; *16
 schip8sprite_calc1:        
+        add     hl,de    
+        ld      de, chip8Screen
         add     hl,de    
         ld      e,c
         ; hl now points to the start of the line
@@ -739,6 +739,8 @@ sspritRowShift0:
         ;       next line
         ld      hl,ix
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
         ld      e,a
         ld      d,0
         add     hl,de
@@ -762,17 +764,9 @@ updateScreen:
         push    iy
         push    ix
         push    ix              ; ix points to chip8 screen
-;        ld      l,a             ; calc offset to enlarged byte
-;        ld      h,0
         ld      a,(screen_mag_x)
         cp      2
         jr      z, updateSScreen
-;        add     hl,hl
-;        add     hl,hl           ; hl = a * 4
-;        ld      de, chip8ScreenBytes
-;        add     hl,de           ; add base to enlarged bytes
-;        ld      ix,hl           ; ix points to enlarged byte
-
 
 // calulate coordinates from ix
         pop     hl              ; hl now holds the chip8 screen
@@ -957,6 +951,7 @@ copySpriteToScreen1a
         ld      a,(screen_widthbytes)
         ld      c,a
         add     hl,hl                           ; *2
+        ld      de,hl
         add     hl,hl                           ; *4
         add     hl,hl                           ; *8
         cp      8
@@ -964,11 +959,12 @@ copySpriteToScreen1a
         add     hl,hl   ; *16
 
 copySpriteToScreen1:
+        add     hl,de
         ld      a,(ix+SpriteVar.x)
         srl     a                               ; / 2
         srl     a                               ; / 4
         srl     a                               ; / 8
-        ld      (ix+SpriteVar.xbyte),a
+        ld      (ix+SpriteVar.xbyte),a          
         ld      e,a
         ld      d,0
         add     hl,de
@@ -1121,8 +1117,10 @@ copySpriteToScreenChipByteCopy2:
 
         ld      hl,(ix+SpriteVar.xlargebyte)
 
-        ld      hl,(ix+SpriteVar.memory)
+        ld      hl,(ix+SpriteVar.memory)        ; go to next chip8 screen line
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a                               ; add to padding bytes
         ld      e,a
         ld      d,0
         add     hl,de
@@ -1161,12 +1159,14 @@ updateScreen1x1:
         ld      a,(screen_widthbytes)
         ld      c,a
         add     hl,hl                           ; *2
+        ld      de,hl
         add     hl,hl                           ; *4
         add     hl,hl                           ; *8
         cp      8
         jr      z,copySpriteToScreen1x1a
         add     hl,hl   ; *16
 copySpriteToScreen1x1a:
+        add     hl,de
         ld      a,(ix+SpriteVar.x)
         srl     a                               ; / 2
         srl     a                               ; / 4
@@ -1209,6 +1209,7 @@ copySpriteToScreen1x1LineLoop:
         ld      c,1
 copySpriteToScreen1x1LineLoop1:
         ldir
+        ld      de,hl
         ld      hl,(ix+SpriteVar.screenIdx)
         inc     hl
         inc     hl
@@ -1216,6 +1217,8 @@ copySpriteToScreen1x1LineLoop1:
 
         ld      hl,(ix+SpriteVar.memory)
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
         ld      e,a
         ld      d,0
         add     hl,de
