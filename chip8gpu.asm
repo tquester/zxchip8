@@ -504,42 +504,24 @@ chip8sprite:
         and     b,a                                    ; clip coordinates
         ld      a,(screen_mask_y)
         and     c,a
-; calc the offset into the (super) chip8 screen
-; calc start of line
-        ld      de, chip8Screen
-        ld      a,(screen_width)
-        ld      l,c
-        ld      h,0
-        add     hl,hl   ; *2
-        add     hl,hl   ; *4
-        add     hl,hl   ; *8                            ; each row 8 bytes
-        cp      64
-        jr      z,chip8sprite_calc1
-        add     hl,hl   ; *16
-chip8sprite_calc1:        
-        add     hl,de    
-        ; hl now points to the start of the line
-        ; y * 8 for chip 8 (64x32 Pixels) or
-        ; y * 16 for schip (128x64 Pixels)
 
-        ; calc the byte number in the row and add it to the row
-        ld      e,b                                     ; hl = addres of row in chip8 screen
-        srl     e                                       ; /2
-        srl     e                                       ; /4
-        srl     e                                       ; /8 d
-        ld      d,0                                     ; each byte = 8 pixel
-        add     hl,de                                   ; hl now points to the byte in the chip8 display
-; HL now points to the correct byte inside the chip8 screen
+        call    calcSpriteAdrInChip8Screen
 
-        ld      e,c                                     ; e = y coordinate
-
-; calc how many times we must shift the bit        
         ld      a,b
-        and     7
-        ld      b,a                                     ; b is the number of shifts we must do
-        ld      c,b
+        srl     a
+        srl     a
+        srl     a
+        ld      e,a                             ; e = screen byte
+        ld      a,(screen_widthbytes)
+        dec     a
+        cp      e
+        ld      e,0
+;        jr      nz, sprite8NotLastByte
+;        ld      e,1
+sprite8NotLastByte:        
 
         pop     iy
+      
         ld      ix,hl
 
 ; now   c = number of bits to shift
@@ -579,20 +561,26 @@ spritRowShift0:
 
         ld      a,h
         call    updateSpriteScreen
-
+        ld      a,e
+        cp      1
+        jr      z, chip8SkipSecondByte
         inc     ix
         ld      a,l
         call    updateSpriteScreen
         dec     ix
 
- ;       call    updateScreen
+       
 
         ;       next line
+chip8SkipSecondByte:        
+;        call    updateGameScreen
         ld      hl,ix
         ld      a,(screen_widthbytes)
+        push    de
         ld      e,a
         ld      d,0
         add     hl,de
+        pop     de
         ld      ix,hl
         pop     bc
     
@@ -669,6 +657,7 @@ schip8sprite_calc1:
         srl     e                                       ; /8 d
         ld      d,0                                     ; each byte = 8 pixel
         add     hl,de                                   ; hl now points to the byte in the chip8 display
+        ld      e,a
 ; HL now points to the correct byte inside the chip8 screen
 ; calc how many times we must shift the bit        
         ld      a,b

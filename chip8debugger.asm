@@ -133,7 +133,7 @@ debuggerQuit:
             call    clearScreen
             ld      hl,chip8Screen
             ld      bc,0
-            call    updateScreenChip8
+            call    updateGameScreen
             ret
 debugSetClearBP:
             ld      hl,(disassCur)

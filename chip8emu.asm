@@ -193,7 +193,9 @@ ballsprite:
 	;DB	$80, $80, $80, $80, $80, $80, $80, $80
 	DB	$00, $18, $3C, $7E, $7E, $3C, $18, $00
 
-chip8Screen:    defs 1024       ; 128*64 Pixels / 8 
+				; 64 lines each 16 bytes (128 Pixels) + 2 Bytes padding
+chip8Screen:    defs 18*64       ; 128*64 Pixels / 8 
+chip8ScreenEnd:
 chip8ScreenBytes:
                 defs 256*4      ; Enlarged bytes from 00..FF map to 00000000 to ffffffff
 schip8ScreenBytes:
@@ -244,14 +246,14 @@ fontsize 		equ  $-chip8Font
 
 ;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
-	incbin "intro.ch8"
+;	incbin "intro.ch8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/10 Bytes Pattern (by Bjorn Kempen)(2015).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Line Demo (unknown aauthor)(20xx).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Link Demo (by John Earnest)(2014).sc8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Traffic (by Christian Kosman)(2018).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
- ;   incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Trip8 Demo (2008) [Revival Studios].ch8"
+    incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Trip8 Demo (2008) [Revival Studios].ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Super Trip8 Demo (by Revival Studios)(2008).sc8"
     ;incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Super Trip8 Demo (by Revival Studios)(2008).sc8"
     ;incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Super Trip8 Demo (by Revival Studios)(2008).sc8"
@@ -276,7 +278,7 @@ fontsize 		equ  $-chip8Font
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Particle Demo [zeroZshadow, 2008].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Zero Demo [zeroZshadow, 2007].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Sierpinski [Sergey Naydenov, 2010].ch8"
-    ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Brix [Andreas Gustafsson, 1990].ch8"
+   ; incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Brix [Andreas Gustafsson, 1990].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Breakout [Carmelo Cortez, 1979].ch8"
 chip8InitGameLen equ $-chip8Memory
 

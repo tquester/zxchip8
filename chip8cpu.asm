@@ -282,7 +282,12 @@ chip8cpu:
 
 
 cpuloop:
-
+  ;  ld      a,(chip8Memory+$312)
+  ;  cp      $10
+  ;  ld      a,(chip8Memory+$312)
+   ; jr      z,ok
+   ; ld      a,0
+; ok:
     ld      a,(screenNeedsRedraw)
     cp      0
 ;   call    nz, updateScreenOnI
@@ -350,7 +355,7 @@ chip8callasm:        ; 0
             cp      $e0
             jr      z,chip8cls
             cp      $ee 
-            jr      z,chip8rts
+            jp      z,chip8rts
             cp      $ff
             jr      z,chip8SetSuperScreen
             cp      $fe
@@ -409,6 +414,10 @@ chip8SetSuperScreen:
             and     3
             or      SCREEN_MODE_SCHIP8
             call    setSuperChip
+            ld      a,1
+            ld      (opt_new_addi),a
+            ld      (cpu_new_shift),a
+
 chip8UpdateScreen:
             call    updateGameScreen
             ret                     
@@ -422,8 +431,11 @@ chip8cls:
             ld      hl,chip8Screen
             ld      bc,0
             call    updateScreenChip8
+            ld      a, DEBUG_STEP
+            ;ld      (debug_go),a
             pop     iy
             pop     ix
+
 
             ret   
 chip8rts:   ld      hl,(ix+reg_sp)
@@ -693,8 +705,10 @@ chip8set8:      ld      (hl),c
 chip8or8:       ld      a,c
                 or      b
                 ld      (hl),a
-                xor     a
-                ld      (ix+reg_vf),a
+                ;cp     0
+                ;ld      a,0
+                ;adc     0
+                ;ld      (ix+reg_vf),a
                 ret
 
 ; ----------------- 8xy2 or x= x and y -----------------                  
@@ -702,14 +716,18 @@ chip8or8:       ld      a,c
 chip8and8:      ld      a,c
                 and     b
                 ld      (hl),a
-                xor     a
-                ld      (ix+reg_vf),a
+                ;cp      0
+                ;ld      a,0
+                ;adc     0
+                ;ld      (ix+reg_vf),a
                 ret
 ; ----------------- 8xy3 or x= x xor y -----------------                  
 chip8xor8:      ld      a,c
                 xor     b
                 ld      (hl),a
                 xor     a
+                ld      a,0
+                adc     0
                 ld      (ix+reg_vf),a
                 ret
 
@@ -1335,10 +1353,10 @@ opt_new_jump:
             db  1           ; 0 = add register to jump
                             ; 1 = original jump
 opt_new_addi
-            db  0                            
+            db  0                           
 
 cpu_new_shift:  
-            db  1           ; 0 = new shift shift x inplace
+            db  0           ; 0 = new shift shift x inplace
                             ; 1 = old shift copy y to x and shift
 
 opt_wait                    ; how many loops we do in cpu main loop to slow down the thing
