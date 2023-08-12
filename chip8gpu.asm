@@ -504,10 +504,14 @@ chip8sprite:
         and     b,a                                    ; clip coordinates
         ld      a,(screen_mask_y)
         and     c,a
-
+; calc the offset into the (super) chip8 screen
+; calc start of line    
         call    calcSpriteAdrInChip8Screen
+ 
+
 
         ld      a,b
+        
         srl     a
         srl     a
         srl     a
@@ -646,6 +650,7 @@ calcSpriteAdrInChip8Screen:
         add     hl,hl   ; *16
 schip8sprite_calc1:        
         add     hl,de    
+        ld      e,c
         ; hl now points to the start of the line
         ; y * 8 for chip 8 (64x32 Pixels) or
         ; y * 16 for schip (128x64 Pixels)
@@ -657,7 +662,6 @@ schip8sprite_calc1:
         srl     e                                       ; /8 d
         ld      d,0                                     ; each byte = 8 pixel
         add     hl,de                                   ; hl now points to the byte in the chip8 display
-        ld      e,a
 ; HL now points to the correct byte inside the chip8 screen
 ; calc how many times we must shift the bit        
         ld      a,b
