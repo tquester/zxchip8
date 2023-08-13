@@ -27,7 +27,7 @@ chip8Game1: EQU 0x0000AD8D
 romCollection: EQU 0x0000AC57
 stack_bottom: EQU 0x0000AA63
 initGameInfo: EQU 0x0000A969
-chip8InitGameLen: EQU 0x00000794
+chip8InitGameLen: EQU 0x00000858
 fontsize: EQU 0x000000F0
 chip8ScreenEnd: EQU 0x0000935C
 ballsprite: EQU 0x00008ED4
