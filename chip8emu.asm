@@ -2,7 +2,7 @@
     SLDOPT COMMENT WPMEM, LOGPOINT, ASSERTION
 
 	include "chip8macros.asm"
-DEBUG:  equ 0
+DEBUG:  equ 1
 NEX:    equ 1   ;  1=Create nex file, 0=create sna file
 
 START   equ $6000

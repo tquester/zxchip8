@@ -3,11 +3,28 @@ screen_maxy             EQU     192
 screen_byte_line        equ     32
 screen_size             EQU     32*192
 screen_start            EQU     $4000
+screen_len				EQU 	6144
 
+SCREEN_ATTR				EQU		$4000+6144
+attrib_len				equ		768
 screen_char_maxx        EQU     32
 screen_char_maxy        EQU     24
 
 CHARSET				    EQU		15360
+
+INK						EQU		8
+
+BLACK					equ 	0
+BLUE					equ		1
+RED						equ		2
+PINK					equ		3
+GREEN					equ		4
+LIGHTBLUE				equ		5
+YELLOW					equ		6
+WHITE					equ		7
+
+
+
 
 
 ; -------------------------------------------------------------------
@@ -27,7 +44,7 @@ printA:
 	cp		10
 	jr		z,	printNewline
 	cp		13
-	jr		z,  printCarriageReturn 
+	jp		z,  printCarriageReturn 
 	LD		L,	A
 	LD		H,  0
 	ADD		HL, HL
@@ -36,6 +53,25 @@ printA:
 	LD		DE, CHARSET
 	ADD		HL, DE
 	LD		IX, HL			; ix points to the charmap of ascii A
+
+; calc attribute address
+	LD		a, (charY)		
+	ld		l,a
+	ld		h,0
+	add		hl,hl				; * 2
+	add		hl,hl				; * 4
+	add		hl,hl				; * 8
+	add		hl,hl				; * 16
+	add		hl,hl				; * 32
+	ld		a,(charX)
+	ld		e,a
+	ld		d,0
+	add		hl,de
+	ld		de, SCREEN_ATTR
+	add		hl,de
+	ld		a,(charAttrib);
+	ld		(hl),a
+
 
 	LD		A, (charY)		
 	LD		L, A
@@ -195,6 +231,8 @@ ReadMKeyboard_2:
                         POP     HL
                         RET
 
+		
+
 ReadKeyboardPressedKeys:defs 5*8+1,0						
 
 cls:
@@ -257,8 +295,8 @@ calclines3:
 clearScreen:		push	af
 					push	bc
 					push	hl
-					ld		hl, 0x4000
-					ld		bc, 6144
+					ld		hl, screen_start
+					ld		bc, screen_len
 clearScreenLoop:	ld		a,0
 					ld		(hl),a
 					inc		hl
@@ -269,6 +307,21 @@ clearScreenLoop:	ld		a,0
 					ld		a,b
 					cp		0
 					jr		nz,clearScreenLoop
+
+					ld		hl, SCREEN_ATTR
+					ld		bc, attrib_len
+					
+clearAttribLoop:	ld		a, WHITE*INK+BLACK
+					ld		(hl),a
+					inc		hl
+					dec		bc
+					ld		a,c
+					cp		0
+					jr		nz,clearAttribLoop
+					ld		a,b
+					cp		0
+					jr		nz,clearAttribLoop
+
 					pop		hl
 					pop		bc
 					pop		af

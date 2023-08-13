@@ -190,12 +190,18 @@ yesno_no:
 strYes:    db      "Yes",0
 strNo:     db       "No",0
 printMenuHintBig:    
-    call    printf
-    db      "%@06141234/t123C/t0=Debug"
-    db      "%@0615qwer/t456D/tM=Menu"
-    db      "%@0616asdf/t789E/t5=Reset"
-    db      "%@0617zxcv/tA0BF/tI=Info Z=Y",0
-    ret        
+                ld      a,(charAttrib);
+                push    af
+                ld      a,LIGHTBLUE*INK+BLACK
+                ld      (charAttrib),a
+                call    printf
+                db      "%@06141234/t123C/t0=Debug   "
+                db      "%@0615qwer/t456D/tM=Menu    "
+                db      "%@0616asdf/t789E/t5=Reset   "
+                db      "%@0617zxcv/tA0BF/tI=Info Z=Y",0
+                pop     af
+                ld      (charAttrib),a
+                ret        
 
 
 

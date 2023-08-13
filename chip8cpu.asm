@@ -862,6 +862,8 @@ chip8xrand:         ; C
                 ld      d,0
                 add     hl,de
                 ld      a,r
+                neg
+                add     a,25
                 and     c
                 ld      (hl),a
 
