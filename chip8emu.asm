@@ -2,7 +2,7 @@
     SLDOPT COMMENT WPMEM, LOGPOINT, ASSERTION
 
 	include "chip8macros.asm"
-DEBUG:  equ 1
+DEBUG:  equ 0
 NEX:    equ 1   ;  1=Create nex file, 0=create sna file
 
 START   equ $6000
@@ -88,10 +88,15 @@ main:
 		PUSHA	
 		PUSH	IX
 		PUSH	IY
+		ld		a,i
+		push	af
 		if fakeinterrupt == 0
 		call	startInterrupts
 		endif
 		call	startMain
+		pop		af
+		ld		i,a
+		im		1
 		POP		IY
 		POP		IX
 		POPA
@@ -143,13 +148,13 @@ startInterrupts:
  
 isrfunc:	
 		di
-		;rst 56
 		push	ix
 		push	iy
 		push	hl
 		push	de
 		push	bc
 		push	af
+	;	rst 56
 		call 	updateScreenInterrupt
 		call	vinterrupt
 		pop		af
@@ -244,6 +249,8 @@ fontsize 		equ  $-chip8Font
 
 				defs	$200-fontsize,0
 
+;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
+;	incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/2-Tests/Keypad Test [Hap, 2006].ch8"
 ;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
 	incbin "intro.ch8"
@@ -277,7 +284,8 @@ fontsize 		equ  $-chip8Font
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Tetris [Fran Dachille, 1991].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Particle Demo [zeroZshadow, 2008].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Zero Demo [zeroZshadow, 2007].ch8"
-    ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Sierpinski [Sergey Naydenov, 2010].ch8"
+    ; incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Walking Dog (by John Earnest)(2015).ch8"
+;    incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Sierpinski [Sergey Naydenov, 2010].ch8"
    ; incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Brix [Andreas Gustafsson, 1990].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Breakout [Carmelo Cortez, 1979].ch8"
 chip8InitGameLen equ $-chip8Memory
@@ -358,11 +366,11 @@ chip8Game7X		/*db		"Missile Command ",0
 chip8Game8:		dw		chip8Game8X-chip8Game8
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Missile Command (by David Winter)(19xx).ch8"
 				*/
-chip8Game8X		db		"Cave Explorer",0
-				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/1-Manuals/Cave Explorer.txt"
+chip8Game8X		db		"Clostro",0
+				incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Chip-8 Games/Clostro.txt"
 				db 		0
 chip8Game9:		dw		chip8Game9X-chip8Game9				
-				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Cave Explorer (by John Earnest))(2014).ch8"
+				incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Chip-8 Games/Clostro (jibbl)(2020).ch8"
 chip8Game9X 	/*
 
 				db		"The maze",0

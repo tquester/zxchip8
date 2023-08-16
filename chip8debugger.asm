@@ -127,6 +127,10 @@ debuggerMainKey:
             jr      z,debuggerPgDown
             cp      'B'
             jr      z,debugSetClearBP
+            cp      'G'
+            jp      z,debugGoAdr
+            cp      'H'
+            jp      z,debugtHelp
 
             jr      debuggerMainKey
 debuggerQuit:
@@ -142,6 +146,13 @@ debugSetClearBP:
             jr      z,debugSetClearBPSet
             call    ClearBreakpointHl
             jr      debuggerMain
+
+
+
+
+
+
+
 debugSetClearBPSet:
             call    SetBreakpointHl
             jr      debuggerMain
@@ -167,7 +178,7 @@ debuggerPgUp:
             pop     hl
             ld      (hl),bc
             ld      (disassCur),bc
-            jr      debuggerMain
+            jp      debuggerMain
 
 debuggerUp: 
             ld      de,(disassCur)
@@ -259,10 +270,10 @@ debuggerScreenEnd:
 
 printcpu:
     PUSHA   
-    ld      a,$16*8
-    call    clearTextLine
-    ld      a,$17*8
-    call    clearTextLine
+;    ld      a,$16*8
+;    call    clearTextLine
+;    ld      a,$17*8
+;    call    clearTextLine
     ld      a,(cpu_debug)
     cp      0
     jr      z,printcpunodb
@@ -454,3 +465,113 @@ dodebug_stepinto:
     ld      hl,iy
     ld      (debug_gobp),hl
     jp      dodebug_end
+
+debugGoAdr: PUSHA
+            ld      a,0
+            call    clearTextLine
+            call    printf
+            db      "%@0000Go to Address:",0            
+            ld      hl,0
+            ld      b,4
+debugGoAdrLoop:
+            call    GetKey            
+            ld      d,0
+            ld      e,0
+            cp      '0'
+            jr      z,debugGoAdrChar
+            ld      e,1
+            cp      '1'
+            jr      z,debugGoAdrChar
+            ld      e,1
+            cp      '1'
+            jr      z,debugGoAdrChar
+            ld      e,2
+            cp      '2'
+            jr      z,debugGoAdrChar
+            ld      e,3
+            cp      '3'
+            jr      z,debugGoAdrChar
+            ld      e,4
+            cp      '4'
+            jr      z,debugGoAdrChar
+            ld      e,5
+            cp      '5'
+            jr      z,debugGoAdrChar
+            ld      e,6
+            cp      '6'
+            jr      z,debugGoAdrChar
+            ld      e,7
+            cp      '7'
+            jr      z,debugGoAdrChar
+            ld      e,8
+            cp      '8'
+            jr      z,debugGoAdrChar
+            ld      e,9
+            cp      '9'
+            jr      z,debugGoAdrChar
+            ld      e,10
+            cp      'A'
+            jr      z,debugGoAdrChar
+            ld      e,11
+            cp      'B'
+            jr      z,debugGoAdrChar
+            ld      e,12
+            cp      'C'
+            jr      z,debugGoAdrChar
+            ld      e,13
+            cp      'D'
+            jr      z,debugGoAdrChar
+            ld      e,14
+            cp      'E'
+            jr      z,debugGoAdrChar
+            ld      e,15
+            cp      'F'
+            jr      z,debugGoAdrChar
+            jr      debugGoAdrLoop
+debugGoAdrChar:
+            call    printA
+            add     hl,hl
+            add     hl,hl
+            add     hl,hl
+            add     hl,hl
+            add     hl,de
+            djnz    debugGoAdrLoop
+            ld     de,chip8Memory
+            add     hl,de
+            ld      (disassCur),hl
+            ld      (disassAdr),hl
+            POPA
+            jp      debuggerMain    
+
+debugtHelp: call    clearScreen
+            call    printf
+            db      "%@0500Z8 Chip8 Debugger"
+            db      "%@0501Disassembler View"
+            db      "%@0003/t5/tPage previous page"
+            db      "%@0005/t8/tPage next page"   
+            db      "%@0007/t6/tNext line"
+            db      "%@0009/t7/tPrev line"    
+            db      "%@000B/tG/tGo to address"    
+            db      "%@000D/tB/tBreakpoint set/remove"    
+            db      "%@000F/tQ/tQuit to debugger"    
+
+            db      0
+            call    GetKey
+            jp      debuggerMain
+
+singleStepHelp: call    clearScreen
+            call    printf
+            db      "%@0500Z8 Chip8 Debugger"
+            db      "%@0501Singlestep view"
+            db      "%@0003/t7/tRun"
+            db      "%@0003/t8/tRun showing CPU"
+            db      "%@0007/t9/tStep over"
+            db      "%@0005/t0/tStep into"   
+            db      "%@0005/tP/tStart Disassembler"   
+            db      "%@0005/tM/tShow Menu"   
+
+            db      0
+            call    GetKey
+            jp      debuggerMain
+                    
+
