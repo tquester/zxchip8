@@ -249,11 +249,12 @@ fontsize 		equ  $-chip8Font
 
 				defs	$200-fontsize,0
 
+	incbin "D:\Emulator\chip8\SuperChip8-Games\Codegrid (by Xikka)(2015).sc8"
 ;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/2-Tests/Keypad Test [Hap, 2006].ch8"
 ;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
-	incbin "intro.ch8"
+;	incbin "intro.ch8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/10 Bytes Pattern (by Bjorn Kempen)(2015).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Line Demo (unknown aauthor)(20xx).sc8"

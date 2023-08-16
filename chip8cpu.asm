@@ -432,8 +432,8 @@ chip8SetSuperScreen:
             or      SCREEN_MODE_SCHIP8
             call    setSuperChip
             ld      a,1
-            ld      (opt_new_addi),a
-            ld      (cpu_new_shift),a
+//            ld      (opt_new_addi),a
+//            ld      (cpu_new_shift),a
 
 chip8UpdateScreen:
             call    updateGameScreen
