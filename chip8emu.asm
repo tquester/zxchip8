@@ -208,7 +208,7 @@ schip8ScreenBytes:
 
 
 				db 		"$chip8memory$"
-chip8Memory:    
+chip8Memory:    db 'Z',  'X'
 
 chip8Font:
 				db $F0, $90, $90, $90, $F0; 0
@@ -245,15 +245,16 @@ bigfont:
 				db	$00, $78, $44, $42, $42, $42, $42, $44, $78, $00	;	D
 				db	$00, $7C, $40, $40, $78, $40, $40, $40, $7C, $00 	;	E
 				db	$00, $7C, $40, $40, $78, $40, $40, $40, $40, $00	;	F
-fontsize 		equ  $-chip8Font
+fontsize 		equ  $-chip8Memory
 
 				defs	$200-fontsize,0
-
-	incbin "D:\Emulator\chip8\SuperChip8-Games\Codegrid (by Xikka)(2015).sc8"
+	incbin "C:\Users\Admin\Downloads\miner (6).ch8"
+;	incbin "D:\Emulator\chip8\chip8roms\Chip8-04-01-2022\Verisimilitudes\Asphyxiation (Verisimilitudes)(2020).ch8"
 ;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/2-Tests/Keypad Test [Hap, 2006].ch8"
 ;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
+;	incbin "intro_scrolltest.ch8"
 ;	incbin "intro.ch8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/10 Bytes Pattern (by Bjorn Kempen)(2015).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"

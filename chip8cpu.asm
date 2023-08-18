@@ -405,7 +405,6 @@ chip8stop   call    chip8Menu
             jp      cpuloop
 chip8Scroll4Right:
             call    scroll4Right
-            jp      cpuloop
 
 chip8Scroll4Left:
             call    scroll4Left
@@ -654,8 +653,8 @@ chip8setetc:    ld      a,c
                 jp      z,chip8shright
                 cp      7
                 jp      z,chip8subyx
-                cp      8
-                jp      z,chip8shleft
+;                cp      8
+;                jp      z,chip8shleft
                 cp      $E
                 jp      z,chip8shifte
 
@@ -742,20 +741,7 @@ chip8subxy:     ld      a,b
                 ret
 
 
-; ----------------- 8xy6 shift right -----------------  
-chip8shright:   ld      a,(hl)
-                ld      c,a
-                ld      a,(cpu_new_shift)
-                cp      0
-                jr      z,chip8shrightNew:  
-                ld      c,b
-chip8shrightNew:
-                srl     c
-                ld      a,0
-                adc     a,0
-                ld      (hl),c
-                ld      (ix+reg_vf),a
-                ret                
+
 
 
 ; ----------------- 8xy7 sub y-x x=y-x -----------------  
@@ -769,29 +755,30 @@ chip8subyx:     ld      a,c
                 ld      (ix+reg_vf),a
                 ret
 
-; ----------------- 8xy8 shift left -----------------  
-chip8shleft:    ld      a,(hl)
-                ld      c,a
+
+; ----------------- 8xy6 shift right -----------------  
+chip8shright:   ld      c,(hl)
                 ld      a,(cpu_new_shift)
                 cp      0
-                jr      z,chip8shleft1:  
-                ld      c,b
-                
-chip8shleft1:   sla     c
+                jr      z,chip8shrightNew:  
+                ld      a,(de)
+                ld      c,a
+
+chip8shrightNew:
                 ld      a,0
+                srl     c
                 adc     a,0
                 ld      (hl),c
                 ld      (ix+reg_vf),a
-                ret                 
-
-
+                ret                
 // ----------------- 8xyE  b = vx c = vy
-chip8shifte:    ld      a,(hl)
-                ld      c,a
+
+chip8shifte:    ld      C,(hl)
                 ld      a,(cpu_new_shift)
                 cp      0
                 jr      z,chip8shifte1
-                ld      c,b
+                ld      a,(de)
+                ld      c,a
 chip8shifte1
                 ld      a,0 
                 sla     c  
@@ -843,6 +830,11 @@ chip8jumpofs:   ld  hl,bc
                 ld  iy,hl
                 ret
 
+startDebug:     push    af
+                ld      a,DEBUG_STEP
+                ld      (debug_go),a
+                pop     af
+                ret
 ; ------------------- CXNN rand ----------------                
 chip8xrand:         ; C
                 ld      hl,cpu_registers
@@ -997,6 +989,8 @@ chip8timers:        ; F
                 jp      z,octoChip8saveFlags
                 cp      $85
                 jp      z,octoChip8saveFlags
+                cp      $E0
+                jp      z,tqChipScreen
                 cp      1
                 jp      z,octoChip8Plane
                 cp      2
@@ -1207,6 +1201,30 @@ octoChip8Audio:
                 ret
 octoChip8Pitch:
                 ret     
+
+; FnE0
+; F0E0      - turns of screen redraw
+; F1E0      - turns on screen redraw
+; F2E0      - redraws the screen
+tqChipScreen:   ld  a,b
+                cp  2
+                jp  z, updateGameScreenDirtyLinesForce
+                cp  0
+                jr  z, tqChipNoUdate
+                cp  1
+                jr  z, tqChipUdate
+                ret
+tqChipNoUdate:  // f0e0
+                ld      a,0
+                ld      (screenOnOff),a
+                ld      a,1
+                ld      (updateOnInterrupt),a
+                ret
+tqChipUdate:    // f1e1
+                ld      a,1
+                ld      (screenOnOff),a
+                ret
+
 octoChip8LongI:
                 ld hl,(iy)
                 ld (ix+reg_i),hl
@@ -1347,13 +1365,13 @@ cpu_registers:
 
 
 opt_new_jump: 
-            db  1           ; 0 = add register to jump
+            db  0           ; 0 = add register to jump
                             ; 1 = original jump
 opt_new_addi
             db  0                           
 
 cpu_new_shift:  
-            db  0           ; 0 = new shift shift x inplace
+            db  1           ; 0 = new shift shift x inplace
                             ; 1 = old shift copy y to x and shift
 
 opt_wait                    ; how many loops we do in cpu main loop to slow down the thing

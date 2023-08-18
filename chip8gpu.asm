@@ -39,12 +39,15 @@ dirtyScreenLines:       defs    64,0
 
 
 updateGameScreen:
+                push    af
                 push    bc
                 push    hl
                 push    iy
                 push    ix
+                
                 ld      hl,dirtyScreenLines
                 ld      b,64
+                ld      a,1
 updateGameScreen1:
                 ld      (hl),a
                 inc     hl
@@ -56,9 +59,26 @@ updateGameScreen1:
                 pop     iy
                 pop     hl
                 pop     bc
+                pop     af
                 ret
 
 updateGameScreenDirtyLines:
+                push    iy
+                push    ix
+                ld      a,(screenOnOff)
+                cp      0
+                jr      z, updateGameScreenDirtyLinesExit
+
+
+                ld      bc,0
+                ld      hl,chip8Screen
+                call    updateScreenChip8
+updateGameScreenDirtyLinesExit:                
+                pop     ix
+                pop     iy
+                ret      
+
+updateGameScreenDirtyLinesForce:
                 push    iy
                 push    ix
                 ld      bc,0
@@ -66,7 +86,7 @@ updateGameScreenDirtyLines:
                 call    updateScreenChip8
                 pop     ix
                 pop     iy
-                ret                
+                ret                            
 
 us_var_x    equ 1
 us_var_y    equ 2
@@ -1293,6 +1313,7 @@ checkDEisInScreenErr:
 
 ; ----------------- draw sprite schip 
 
+screenOnOff:            db 0
 screen_width:           db 64                   ; pixel width of screen
 screen_height:          db 32                   ; number of lines of screen
 screen_widthbytes:      db 8                    ; number of bytes per row
@@ -1428,10 +1449,14 @@ scrollDownA:
         ld      e,a
         ld      d,0
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
         call    MulHleqDExA
         push    hl                      ; hl = number of rows * bytes
 
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
         ld      e,a
         ld      d,0
         ld      a,(screen_height)
@@ -1452,11 +1477,14 @@ scrollDownA:
         sub     b
         ld      b,a                     ; number of rows (total-a)
         ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
 scrollDownLoop:
         push    bc
         ld      b,0
         ld      c,a
         ldir                            ; copy a line
+ ;       call    updateGameScreen
         ld      c,a
         ld      b,0
         sub     hl,bc                   ; advance to previou lines
@@ -1485,9 +1513,70 @@ scrollDownLoop2:
         call    updateGameScreen
         POPA
         ret
-scrollUpA:
-            ret
 
+calcScreen8Line:
+        add     hl,hl           ; * 2
+        add     hl,de
+        add     hl,hl           ; * 4
+        add     hl,hl           ; * 8
+        add     hl,de           ; * 10
+        ret
+calcScreenLine:
+        ld      h,0
+        ld      l,a
+        ld      a,(screen_height)
+        cp      8
+        jr      z,calcScreen8Line
+calcScreen16Line:
+        add     hl,hl           ; * 2
+        add     hl,de
+        add     hl,hl           ; * 4
+        add     hl,hl           ; * 8
+        add     hl,hl           ; * 16
+        add     hl,de           ; * 18
+        ret
+
+
+scrollUpA:
+        ld      de,chip8Screen
+        push    af
+        ld      b,a
+        call    calcScreenLine
+        ld      a,(screen_height)
+        sub     b
+        ld      de,chip8Screen
+        ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
+scrollUpALoop:
+        push    bc
+        ld      c,a
+        ld      b,0
+        ldir    
+        pop     bc
+        djnz    scrollUpALoop
+        pop     af
+
+        ld      b,a
+        ld      c,a
+        ld      a,(screen_height)
+        sub     b
+        call    calcScreenLine
+        ld      a,(screen_widthbytes)
+        inc     a
+        inc     a
+        ld      c,a
+        ld      d,a
+        ld      a,0
+scrollUpClearLoop1:
+        ld      c,d
+scrollUpClearLoop2:
+        ld      (hl),a
+        inc     hl
+        dec     c
+        jr      nz, scrollUpClearLoop2
+        djnz    scrollUpClearLoop1
+        ret        
 checkMultipleHexKeyA:  
                 ;  returns a = 1 if the key a is pressed
                 ;          a = 0 if not
