@@ -1,7 +1,7 @@
 debugcpu        equ 1
 breakonunknown  equ 0
 STARTMODE       equ DEBUG_RUN
-fakeinterrupt   equ 20         ; all x commands
+fakeinterrupt   equ 0         ; all x commands
 reg_v0          equ 0
 reg_v1          equ 1
 reg_v2          equ 2
@@ -211,23 +211,33 @@ cpuJumpTable:
     dw      chip8timers         ; F
 
 
+vinterruptcheckKey:
+        ld      a,20
+        ld      (cpu_registers+reg_fakeir),a
+        jp    cpuCheckKey
+
 ; called from the interrupt service or the fake ir    
 vinterrupt:
+        if fakeinterrupt > 0
         call    cpuCheckKey
+        endif
 
-        ld  a,(ix+reg_delay)
-        cp  0
-        jr  z, vinterrupt_1
-        dec     (ix+reg_delay)
+        ld      a,(cpu_registers+reg_delay)
+        cp      0
+        jr      z, vinterrupt_1
+        dec     a
+        ld     (cpu_registers+reg_delay),a
 vinterrupt_1:
-        ld  a,(ix+reg_sound)
-        cp  0
-        jr  z,vinterrupt_2
-        dec     (ix+reg_sound)
-vinterrupt_2:        
+        ld      a,(cpu_registers+reg_sound)
+        cp      0
+        jr      z,vinterrupt_2
+        dec     a
+        ld      (ix+reg_sound),a
+vinterrupt_2:       
+        if fakeinterrupt > 0
         ld      a,fakeinterrupt
-        ld      (ix+reg_fakeir),a
-
+        ld      (cpu_registers+reg_fakeir),a
+        endif
         ret    
 
 skip:   ld      a,(ix+reg_cpuStepOverBreakpointNext)
@@ -250,8 +260,29 @@ skiplong:
         inc     iy
         ret
 
+updateScreenOnI:
+    ld      a,0
+    ld      (screenNeedsRedraw),a
+    jp      updateGameScreen
+
+clearRegisters:
+    push    hl
+    push    bc
+    push    af
+    ld      hl,cpu_registers
+    ld      b,reg_i
+    ld      a,0
+clearRegistersLoop:
+    ld      (hl),a
+    djnz    clearRegistersLoop
+    pop     af
+    pop     bc
+    pop     hl
+
+    ret
 
 chip8cpu:   
+    call    clearRegisters
     ld      ix,cpu_registers
     push    hl
     pop     iy
@@ -265,11 +296,21 @@ chip8cpu:
     ld      (ix+reg_fakeir),a
     endif
 
+
 cpuloop:
 
-    ld      a,(ix+reg_sound)
+  ;  ld      a,(chip8Memory+$312)
+  ;  cp      $10
+  ;  ld      a,(chip8Memory+$312)
+   ; jr      z,ok
+   ; ld      a,0
+; ok247:
+    ld      a,(screenNeedsRedraw)
     cp      0
-    call    nz,chip8beep
+;   call    nz, updateScreenOnI
+;    ld      a,(ix+reg_sound)
+;    cp      0
+;    call    nz,chip8beep
 
     ld      a,(ix+reg_quit)
     cp      1
@@ -287,8 +328,12 @@ cpuloop:
     call    nz, cpuDoDebug
     endif
     if fakeinterrupt > 0 
-    dec     (ix+reg_fakeir)
+    dec     (ix+reg_fakeir)    
     call    z, vinterrupt
+    else
+    dec     (ix+reg_fakeir)    
+    call    z, vinterruptcheckKey
+
     endif
     ld      b,(iy)
     inc     iy
@@ -327,7 +372,7 @@ chip8callasm:        ; 0
             cp      $e0
             jr      z,chip8cls
             cp      $ee 
-            jr      z,chip8rts
+            jp      z,chip8rts
             cp      $ff
             jr      z,chip8SetSuperScreen
             cp      $fe
@@ -360,7 +405,6 @@ chip8stop   call    chip8Menu
             jp      cpuloop
 chip8Scroll4Right:
             call    scroll4Right
-            jp      cpuloop
 
 chip8Scroll4Left:
             call    scroll4Left
@@ -386,21 +430,22 @@ chip8SetSuperScreen:
             and     3
             or      SCREEN_MODE_SCHIP8
             call    setSuperChip
+            ld      a,1
+//            ld      (opt_new_addi),a
+//            ld      (cpu_new_shift),a
+
 chip8UpdateScreen:
             call    updateGameScreen
             ret                     
 chip8cls:   
             push    ix
             push    iy
-            call    clearScreen
-            call    printMenuHint
             ld      hl,chip8Screen
             call    clearScreenChip8
-            ld      hl,chip8Screen
-            ld      bc,0
-            call    updateScreenChip8
+            call    updateGameScreen
             pop     iy
             pop     ix
+
 
             ret   
 chip8rts:   ld      hl,(ix+reg_sp)
@@ -445,8 +490,8 @@ chip8call:          ; 2
 ; ----------------- 3xnn skip -----------------                
 chip8skipvxeqnn:    ; 3
                 ld  hl,ix
-                ld  de,reg_v0
-                add hl,de
+//                ld  de,reg_v0
+//                add hl,de
                 ld  e,b
                 ld  d,0
                 add hl,de
@@ -459,8 +504,8 @@ chip8skipvxeqnn:    ; 3
 ; ----------------- 4xnn skip -----------------                                
 chip8skipvxnenn:    ; 4
                 ld  hl,ix
-                ld  de,reg_v0
-                add hl,de
+//                ld  de,reg_v0
+//                add hl,de
                 ld  e,b
                 ld  d,0
                 add hl,de
@@ -482,8 +527,8 @@ chip8skipvxnenn:    ; 4
 ; load vx - vy (0x5XY3) load an inclusive range of registers from memory starting at i.
 chip8skipvxeqvy:    ; 5
                 ld  hl,ix
-                ld  de,reg_v0
-                add hl,de
+//                ld  de,reg_v0
+//                add hl,de
                 push    hl          ; hl = reg_v0
                 ld  a,c
                 and 15
@@ -554,8 +599,8 @@ octoLoadxy:     ret
 
 chip8setvxnn:       ; 6
                 ld  hl,ix
-                ld  de,reg_v0
-                add hl,de
+//                ld  de,reg_v0
+//                add hl,de
                 ld  e,b             ; add register number (6XNN)
                 ld  d,0
                 add hl,de
@@ -564,7 +609,7 @@ chip8setvxnn:       ; 6
 
 ; ----------------- 7xnn add -----------------                  
 chip8addnnvx:       ; 7
-                ld  hl,cpu_registers+reg_v0
+                ld  hl,ix
                 ld  e,b
                 ld  d,0
                 add hl,de
@@ -575,8 +620,7 @@ chip8addnnvx:       ; 7
 ; ----------------- 8xnf set and math -----------------                  
 chip8setetc:    ld      a,c
                 and     15
-                ld      hl,cpu_registers+reg_v0
-                push    hl 
+                ld      hl,ix
                 ld      e,c
                 srl     e
                 srl     e
@@ -585,24 +629,15 @@ chip8setetc:    ld      a,c
                 ld      d,0
                 add     hl,de
                 ld      c,(hl)
+                push    hl
 
-                pop     hl
+                ld      hl,ix
                 ld      e,b
                 ld      d,0
                 add     hl,de
-                ld      b,(hl)              // (hl) = vx
-                push    hl
-                ld      l,a
-                ld      h,0
-                add     hl,hl
-                ld      de,chip8jmp8
-                add     hl,de
-                ld      de,(hl)
-                pop     hl
-                push    de              ; this is a jp (de)
-                ret
-                /*
-                cp      0
+                ld      b,(hl)              // (hl) = vx        b = (vx)
+                pop     de                  // (de) = vy        c = (vy)
+                cp      0                   // a = sub command
                 jp      z,chip8set8
                 cp      1
                 jp      z,chip8or8
@@ -615,14 +650,14 @@ chip8setetc:    ld      a,c
                 cp      5
                 jp      z,chip8subxy
                 cp      6
-                jr      z,chip8shright
+                jp      z,chip8shright
                 cp      7
                 jp      z,chip8subyx
-                cp      8
-                jr      z,chip8shleft
+;                cp      8
+;                jp      z,chip8shleft
                 cp      $E
-                jr      z,chip8shifte
-*/
+                jp      z,chip8shifte
+
 
 chip8illegal:    if      breakonunknown=1
                 ld      hl,iy
@@ -649,7 +684,7 @@ chip8jmp8:      dw      chip8set8       ;       0
                 dw      chip8subxy      ;       5
                 dw      chip8shright    ;       6
                 dw      chip8subyx      ;       7
-                dw      chip8shleft     ;       8
+                dw      chip8illegal    ;       8
                 dw      chip8illegal    ;       9
                 dw      chip8illegal    ;       A
                 dw      chip8illegal    ;       B
@@ -685,18 +720,19 @@ chip8xor8:      ld      a,c
                 ret
 
 ; ----------------- 8xy4 or x= x add y, vf = carry -----------------                  
-chip8add8:      ld      a,0
+chip8add8:      
                 ld      a,c
                 add     b
                 ld      (hl),a
+                ld      a,0
                 adc     0
                 ld      (ix+reg_vf),a
                 ret
 
 
-; ----------------- 8xy5 sub x = x-y -----------------                 
+; ----------------- 8xy5 sub x = x-y -----------------                 7
 chip8subxy:     ld      a,b
-                sbc     c
+                sub     c
                 ld      (hl),a
                 ld      a,0
                 adc     a,0
@@ -705,18 +741,7 @@ chip8subxy:     ld      a,b
                 ret
 
 
-; ----------------- 8xy6 shift right -----------------  
-chip8shright:   ld      a,(cpu_new_shift)
-                cp      0
-                jr      z,chip8shrightNew:  
-                ld      c,b
-chip8shrightNew:
-                srl     c
-                ld      a,0
-                adc     a,0
-                ld      (hl),c
-                ld      (ix+reg_vf),a
-                ret                
+
 
 
 ; ----------------- 8xy7 sub y-x x=y-x -----------------  
@@ -730,25 +755,30 @@ chip8subyx:     ld      a,c
                 ld      (ix+reg_vf),a
                 ret
 
-; ----------------- 8xy8 shift left -----------------  
-chip8shleft:    ld      a,(cpu_new_shift)
+
+; ----------------- 8xy6 shift right -----------------  
+chip8shright:   ld      c,(hl)
+                ld      a,(cpu_new_shift)
                 cp      0
-                jr      z,chip8shleft1:  
-                ld      c,b
-                
-chip8shleft1:   sla     c
+                jr      z,chip8shrightNew:  
+                ld      a,(de)
+                ld      c,a
+
+chip8shrightNew:
                 ld      a,0
+                srl     c
                 adc     a,0
                 ld      (hl),c
                 ld      (ix+reg_vf),a
-                ret                 
-
-
+                ret                
 // ----------------- 8xyE  b = vx c = vy
-chip8shifte:    ld      a,(cpu_new_shift)
+
+chip8shifte:    ld      C,(hl)
+                ld      a,(cpu_new_shift)
                 cp      0
                 jr      z,chip8shifte1
-                ld      c,b
+                ld      a,(de)
+                ld      c,a
 chip8shifte1
                 ld      a,0 
                 sla     c  
@@ -756,14 +786,6 @@ chip8shifte1
                 ld      (hl),c
                 ld      (ix+reg_vf),a
                 ret              
-
-
-
-               
-
-
-
-
 
 
 ; ----------------- 9xnn skip -----------------                                
@@ -808,13 +830,23 @@ chip8jumpofs:   ld  hl,bc
                 ld  iy,hl
                 ret
 
+startDebug:     push    af
+                ld      a,DEBUG_STEP
+                ld      (debug_go),a
+                pop     af
+                ret
 ; ------------------- CXNN rand ----------------                
 chip8xrand:         ; C
                 ld      hl,cpu_registers
                 ld      e,a
                 ld      d,0
                 add     hl,de
+                push    hl
+                call    xrnd
                 ld      a,r
+                xor     l
+;                ld      a,l
+                pop     hl
                 and     c
                 ld      (hl),a
 
@@ -957,6 +989,8 @@ chip8timers:        ; F
                 jp      z,octoChip8saveFlags
                 cp      $85
                 jp      z,octoChip8saveFlags
+                cp      $E0
+                jp      z,tqChipScreen
                 cp      1
                 jp      z,octoChip8Plane
                 cp      2
@@ -981,7 +1015,7 @@ chip8timers:        ; F
                 push    bc
                 call    printf
 
-                db      "/nunknown command %lx at %lx/n",0
+                db      "%@0000unknown command %lx at %lx/n",0
                 call    GetKey
                ld      a,DEBUG_STEP
                 ld      (debug_go),a
@@ -1016,20 +1050,21 @@ chip8f15:       ; delay = vx
                 ret
 chip8f18:       ; timer = vx
                 ld      a,(hl)
+                or      1
                 ld      (ix+reg_sound),a
                 ret
 chip8f1E:       ; i = i + vx
                 ld      e,(hl)
-                ld      a,e
                 ld      d,0
                 ld      hl,(ix+reg_i)
                 add     hl,de
                 ld      (ix+reg_i),hl
-                ld      a,0
-                ld      de,$1000
-                sub     hl,de
-                adc     0
-                ld      (ix+reg_vf),a
+
+;                ld      a,0
+;                ld      de,$1000
+;                sub     hl,de
+;                adc     0
+;                ld      (ix+reg_vf),a
                 ret
 chip8f29:       ; i = font sprite x     ; 8x5 font
                 ld      de,chip8Font-chip8Memory
@@ -1103,7 +1138,7 @@ chip8f55:       ld      c,b              ; store  load vars v0..vx from I to var
                 ld     hl,chip8Memory
                 ld      de,(ix+reg_i)
                 add     hl,de
-                ld      de,cpu_registers+reg_v0
+                ld      de,ix
                 ex      de,hl
                 push    bc
                 ldir
@@ -1115,6 +1150,8 @@ chip8f55:       ld      c,b              ; store  load vars v0..vx from I to var
                 ld      hl,(ix+reg_i)
                 add     hl,bc
                 ld      (ix+reg_i),hl
+
+
                 ret
 
 chip8f65:       ld      a,b
@@ -1125,7 +1162,7 @@ chip8f65:       ld      a,b
                 ld      de,(ix+reg_i)
                 ld      hl,chip8Memory
                 add     hl,de
-                ld      de,cpu_registers+reg_v0
+                ld      de,ix
                 ldir
                 pop     bc
                 ld      a,(opt_new_addi)
@@ -1164,6 +1201,30 @@ octoChip8Audio:
                 ret
 octoChip8Pitch:
                 ret     
+
+; FnE0
+; F0E0      - turns of screen redraw
+; F1E0      - turns on screen redraw
+; F2E0      - redraws the screen
+tqChipScreen:   ld  a,b
+                cp  2
+                jp  z, updateGameScreenDirtyLinesForce
+                cp  0
+                jr  z, tqChipNoUdate
+                cp  1
+                jr  z, tqChipUdate
+                ret
+tqChipNoUdate:  // f0e0
+                ld      a,0
+                ld      (screenOnOff),a
+                ld      a,1
+                ld      (updateOnInterrupt),a
+                ret
+tqChipUdate:    // f1e1
+                ld      a,1
+                ld      (screenOnOff),a
+                ret
+
 octoChip8LongI:
                 ld hl,(iy)
                 ld (ix+reg_i),hl
@@ -1199,7 +1260,9 @@ chip8Emulator:
 
 scroll: ret
 resetcpu:
+    ld      a,0
     call    setSuperChip
+    call    clearRegisters
     call    clearScreen
     call    printMenuHint
     ld      iy,chip8Memory+0x200
@@ -1302,10 +1365,10 @@ cpu_registers:
 
 
 opt_new_jump: 
-            db  1           ; 0 = add register to jump
+            db  0           ; 0 = add register to jump
                             ; 1 = original jump
 opt_new_addi
-            db  0                            
+            db  0                           
 
 cpu_new_shift:  
             db  1           ; 0 = new shift shift x inplace

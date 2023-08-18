@@ -5,7 +5,7 @@
 DEBUG:  equ 0
 NEX:    equ 1   ;  1=Create nex file, 0=create sna file
 
-START   equ 24500
+START   equ $6000
 
 
 
@@ -84,10 +84,19 @@ main:
    
 
    		di
+
 		PUSHA	
 		PUSH	IX
 		PUSH	IY
+		ld		a,i
+		push	af
+		if fakeinterrupt == 0
+		call	startInterrupts
+		endif
 		call	startMain
+		pop		af
+		ld		i,a
+		im		1
 		POP		IY
 		POP		IX
 		POPA
@@ -101,7 +110,7 @@ chip8beep:
 		push	bc
 		push	de
 		ld		hl,2
-		ld		bc,30
+		ld		bc,1
 		call	beep
 		pop		de
 		pop		bc
@@ -111,6 +120,54 @@ chip8beep:
 		; bc = pause (frequency)
 		; hl = duration
 
+startInterrupts:
+		ld		hl,$fe00
+		ld		de,hl
+		inc		de
+		ld            bc, 256
+		; Setup the I register (the high byte of the table)
+		ld            a, h
+		ld            i, a
+		; Set the first entries in the table to $FC
+		ld            a, $FC
+		ld            (hl), a
+		; Copy to all the remaining 256 bytes
+		ldir
+		; Setup IM2 mode
+		im            2
+		ld			hl,$fcfc
+		ld			a,$c3 		; jp
+		ld			(hl),a
+		inc			hl
+		ld			de,isrfunc
+		ld			(hl),de
+		jp			$fcfc
+		im 		2
+		ei
+		ret
+ 
+isrfunc:	
+		di
+		push	ix
+		push	iy
+		push	hl
+		push	de
+		push	bc
+		push	af
+	;	rst 56
+		call 	updateScreenInterrupt
+		call	vinterrupt
+		pop		af
+		pop		bc
+		pop		de
+		pop		hl
+		pop		iy
+		pop		ix
+		ei
+		reti
+
+
+	
 
 
 
@@ -141,7 +198,9 @@ ballsprite:
 	;DB	$80, $80, $80, $80, $80, $80, $80, $80
 	DB	$00, $18, $3C, $7E, $7E, $3C, $18, $00
 
-chip8Screen:    defs 1024       ; 128*64 Pixels / 8 
+				; 64 lines each 16 bytes (128 Pixels) + 2 Bytes padding
+chip8Screen:    defs 18*64       ; 128*64 Pixels / 8 
+chip8ScreenEnd:
 chip8ScreenBytes:
                 defs 256*4      ; Enlarged bytes from 00..FF map to 00000000 to ffffffff
 schip8ScreenBytes:
@@ -149,7 +208,7 @@ schip8ScreenBytes:
 
 
 				db 		"$chip8memory$"
-chip8Memory:    
+chip8Memory:    db 'Z',  'X'
 
 chip8Font:
 				db $F0, $90, $90, $90, $F0; 0
@@ -186,18 +245,24 @@ bigfont:
 				db	$00, $78, $44, $42, $42, $42, $42, $44, $78, $00	;	D
 				db	$00, $7C, $40, $40, $78, $40, $40, $40, $7C, $00 	;	E
 				db	$00, $7C, $40, $40, $78, $40, $40, $40, $40, $00	;	F
-fontsize 		equ  $-chip8Font
+fontsize 		equ  $-chip8Memory
 
 				defs	$200-fontsize,0
-
-	;incbin "intro.ch8"
+	incbin "C:\Users\Admin\Downloads\miner (6).ch8"
+;	incbin "D:\Emulator\chip8\chip8roms\Chip8-04-01-2022\Verisimilitudes\Asphyxiation (Verisimilitudes)(2020).ch8"
+;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
+;	incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/2-Tests/Keypad Test [Hap, 2006].ch8"
+;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
+;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
+;	incbin "intro_scrolltest.ch8"
+;	incbin "intro.ch8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/10 Bytes Pattern (by Bjorn Kempen)(2015).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Line Demo (unknown aauthor)(20xx).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Link Demo (by John Earnest)(2014).sc8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Traffic (by Christian Kosman)(2018).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
-    incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Trip8 Demo (2008) [Revival Studios].ch8"
+;    incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Trip8 Demo (2008) [Revival Studios].ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Super Trip8 Demo (by Revival Studios)(2008).sc8"
     ;incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Super Trip8 Demo (by Revival Studios)(2008).sc8"
     ;incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Super Trip8 Demo (by Revival Studios)(2008).sc8"
@@ -209,7 +274,7 @@ fontsize 		equ  $-chip8Font
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/LabVIEW Splash Screen (fix)(by Richard James Lewis)(2019).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Lainchain (by Ashton Harding)(2018).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Kemono Friends logo (by Volgy)(2017).ch8"
-    ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Heart Monitor Demo (by Matthew Mikolay)(2015).ch8"
+   ; incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/1-Demos/Heart Monitor Demo (by Matthew Mikolay)(2015).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/8ce 8ttorney Disk1 (by SysL)(2016).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Cave Explorer (by John Earnest))(2014).ch8"
     ;incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/2-alt/Rush Hour [Hap, 2006] (alt).ch8"
@@ -221,8 +286,9 @@ fontsize 		equ  $-chip8Font
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Tetris [Fran Dachille, 1991].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Particle Demo [zeroZshadow, 2008].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Zero Demo [zeroZshadow, 2007].ch8"
-    ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Sierpinski [Sergey Naydenov, 2010].ch8"
-    ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Brix [Andreas Gustafsson, 1990].ch8"
+    ; incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Walking Dog (by John Earnest)(2015).ch8"
+;    incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Sierpinski [Sergey Naydenov, 2010].ch8"
+   ; incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Brix [Andreas Gustafsson, 1990].ch8"
     ;incbin "D:/Emulator/chip8/chip8-master/chip8-master/roms/Breakout [Carmelo Cortez, 1979].ch8"
 chip8InitGameLen equ $-chip8Memory
 
@@ -302,11 +368,11 @@ chip8Game7X		/*db		"Missile Command ",0
 chip8Game8:		dw		chip8Game8X-chip8Game8
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Missile Command (by David Winter)(19xx).ch8"
 				*/
-chip8Game8X		db		"Cave Explorer",0
-				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/1-Manuals/Cave Explorer.txt"
+chip8Game8X		db		"Clostro",0
+				incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Chip-8 Games/Clostro.txt"
 				db 		0
 chip8Game9:		dw		chip8Game9X-chip8Game9				
-				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Cave Explorer (by John Earnest))(2014).ch8"
+				incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Chip-8 Games/Clostro (jibbl)(2020).ch8"
 chip8Game9X 	/*
 
 				db		"The maze",0
@@ -331,7 +397,7 @@ chip8Game11X:
 ; total size of code block
 code_size   EQU     $ - main
 	MakeTape "chip8emu.tap", "zx chip8", START, code_size
-	MakeBinTape "chip8games.tap", "game", romCollection,romCollectionSize
+;	MakeBinTape "chip8games.tap", "game", romCollection,romCollectionSize
 
  IF NEX == 0
         SAVESNA "z80-sample-program.sna", main

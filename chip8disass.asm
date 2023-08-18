@@ -386,6 +386,8 @@ dchip8timers         ; F
                     jp      z,chip8f_33
                     cp      $55
                     jp      z,chip8f_55
+                    cp      $65
+                    jp      z,chip8f_65
                     cp      $56
                     jp      z,chip8f_56
                     cp      $01
@@ -434,6 +436,11 @@ chip8f_55:          call    emitText
                     db      "store V0..",0
                     call    dchip8_regX
                     ret
+chip8f_65:          call    emitText
+                    db      "load V0..",0
+                    call    dchip8_regX
+                    ret
+
 chip8f_56:          call    emitText
                     db      "load V0..",0
                     call    dchip8_regX

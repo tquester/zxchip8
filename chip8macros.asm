@@ -167,8 +167,8 @@ NUM   MACRO	value
                 ORG     #5C00
 .bas_start    
 				LINE	
-				DB      ZXB_CLEAR, ZXB_VAL, '"24500":'
-				DB		ZXB_LET,"A=",ZXB_VAL, '"24500":'
+				DB      ZXB_CLEAR, ZXB_VAL, '"24576":'
+				DB		ZXB_LET,"A=",ZXB_VAL, '"24576":'
 				LEND
 
 				LINE	
@@ -178,9 +178,9 @@ NUM   MACRO	value
                 DB      '"',ZXB_CODE,'a:'                       ; " CODE a:
 				LEND
 
-	;			LINE
-	;			db		ZX_STOP
-	;			LEND
+;				LINE
+;				db		ZX_STOP
+;				LEND
 
 				LINE
 				db		ZXB_LET, "ADR=",ZXB_USR,'a '
