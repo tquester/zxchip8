@@ -248,7 +248,7 @@ bigfont:
 fontsize 		equ  $-chip8Memory
 
 				defs	$200-fontsize,0
-	incbin "C:\Users\Admin\Downloads\miner (6).ch8"
+	incbin "samples/EnterTheMine.ch8"
 ;	incbin "D:\Emulator\chip8\chip8roms\Chip8-04-01-2022\Verisimilitudes\Asphyxiation (Verisimilitudes)(2020).ch8"
 ;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/2-Tests/Keypad Test [Hap, 2006].ch8"
