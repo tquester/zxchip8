@@ -1,1 +1,0 @@
-call ..\sjasmplus-1.20.2.win\sjasmplus.exe reloc_z80.asm --raw=relocz80.bin

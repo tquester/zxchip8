@@ -116,6 +116,9 @@ cpuCheckKey
     jr      z,cpukeyMenu:
     cp      a,'I'
     jr      z,cpuKeyInfo
+    cp      a,'P'
+    jp      z,changeScreenAttrib:
+
     ret     
 
 cpuKeyInfo:
@@ -132,6 +135,7 @@ cpuKeyInfo:
     call    updateGameScreen
     ret
 
+
 cpuKeySingleStep:
     ld      a,DEBUG_STEP
     ld      (debug_go),a
@@ -144,6 +148,7 @@ cpukeyReset:
 cpukeyMenu:
     push    ix
     call    chip8Menu
+    call	setCurrentScreenAttributes
 ;    call    checkMemory
 ;    db      "cpukey2",0
     pop     ix
@@ -1236,7 +1241,6 @@ octoChip8LongI:
 
 startchip8:
 chip8Emulator:
-    call    clearScreen
     call    prepareChip8Screen
     call    initChip8
 
@@ -1249,6 +1253,7 @@ chip8Emulator:
 
     call    clearScreen
     call    printMenuHint
+    call	setCurrentScreenAttributes
     ld      hl,chip8Memory+0x200
 
     ld      hl,chip8Memory+0x200
@@ -1265,6 +1270,7 @@ resetcpu:
     call    clearRegisters
     call    clearScreen
     call    printMenuHint
+    call	setCurrentScreenAttributes
     ld      iy,chip8Memory+0x200
     ld      ix,cpu_registers
     ld      hl,reg_stacktop

@@ -177,6 +177,7 @@ startMain:
 
 	call	calcLines
 	call	cls
+	
 	call	chip8Emulator
 	ld		bc,chip8Memory
 
@@ -192,6 +193,7 @@ startMain:
 	include "chip8debugger.asm"
 	include "chip8menu.asm"
 	include "chip8GameMenu.asm"
+	include "chip8Kemston.asm"
 	
 
 ballsprite:

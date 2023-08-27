@@ -292,6 +292,63 @@ calclines3:
                         LD		HL,0				// OK
                         RET   
 
+changeScreenAttrib:
+                push    hl
+                push    de
+                ld      a,(screenCurAttrib)
+                inc     a
+                cp      screenMaxAttrib
+                jr      c,changeScreenAttrib2
+                ld      a,0
+changeScreenAttrib2:
+                ld      (screenCurAttrib),a
+                call    setCurrentScreenAttributes
+                pop     de
+                pop     hl
+                ret
+
+setCurrentScreenAttributes:                
+                ld      a,(screenCurAttrib);
+                ld      e,a
+                ld      d,0
+                ld      hl,screenAttribs
+                add     hl,de
+                ld      a,(hl)
+                call    setGameScreenAttributes
+                ld      hl,SCREEN_ATTR+32*16
+                ld      bc,(24-16)*32
+                ld      a,LIGHTBLUE*INK+BLACK
+                call    setGameScreenAttributesHLBC
+
+                ret
+
+; a = attribute
+setGameScreenAttributes
+                ld      hl,SCREEN_ATTR
+                ld      bc,32*16
+setGameScreenAttributesHLBC
+                push    de
+                ld      d,a
+setGameScreenAttributesLoop:
+                ld      (hl),d
+                inc     hl
+                dec     bc
+                ld      a,c
+                or      a
+                jr      nz, setGameScreenAttributesLoop
+                ld      a,b
+                or      a
+                jr      nz, setGameScreenAttributesLoop
+                pop     bc
+                ret
+
+screenAttribs:  db      BLACK*INK+WHITE
+                db      WHITE*INK+BLACK
+                db      BLUE*INK+WHITE
+                db      WHITE*INK+BLUE
+screenCurAttrib db      0
+screenMaxAttrib equ     screenCurAttrib-screenAttribs						
+
 clearScreen:		push	af
 					push	bc
 					push	hl

@@ -36,6 +36,7 @@ chip8MenuZoom:
         db      "S/tStart game/n/n"
         db      "R/tReset game/n/n"
         db      "D/tStart Debug/n/n"
+        db      "K/tKempston Joystick/n/n"
         db      "W/tCPU Slowdown %ld/n"
         db      "O/tZoom mode/t/t%s/n"
         db      "1/tNew ADD I,vx/t%s/n"
@@ -54,13 +55,15 @@ chip8MenuLoop:
         cp      'L'
         jr      z,menuLoadGame
         cp      'D'
-        jr      z,menuDebugGame
+        jp      z,menuDebugGame
         cp      'W'
         jr      z,menuChangeWait
         cp      'Q'
         jr      z,menuQuitToGame
         cp      'O'
         jr      z,menuSetZoom
+        cp      'K'
+        jp      z,menuKempston
 
         cp      '1'
         jr      z,menuModifyAddI
@@ -132,6 +135,10 @@ menuDebugGame:
 selectGame:
         call    chip8GameMenu
         jp      chip8Menu        
+
+menuKempston:
+        call           chip8KemstonMenu
+        jp              chip8Menu
 
 printMenuHint:
     ld      a,(debug_go)
