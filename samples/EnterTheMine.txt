@@ -1,0 +1,24 @@
+Enter the Mine is the attempt to create a jump and run game that works similar to Manic Miner and other plattform games from 1980s.
+
+Move the miner with a and d and jump with w
+
+This game comes with its own chip8 emulator running on the ZX Spectrum. If you have an emulator installed, just double click the .tap file and open the game in the menu. You may also play it on a real ZX Spectrum. The emulator also contains a chip8 debugger.
+
+The second tape contains a recompiled version of the game. Instead of running the game in an emulator, the chip8 assembler has been compiled into native Z80 code. This code uses the screen and keyboard functions from the emulator but do not contain the menu and the debugger.
+
+Many attempts have been made to make chip8 games flicker free. However the ZX Spectrum has limited computing speed which make the screen update slower than under modern systems. 
+
+I found a new solution. The emulator supports three new opcodes:
+
+F0E0		- fast mode. Disable all screen updates 
+F0E1		- slow mode. Enable all screen updates
+F0E2		- Screen update
+
+In interrupt update mode, the emulator copies all changed lines to the screen but this will flicker if the copy occurs right after a sprite has been deleted. Switching to fast mode during the scene update and forcing a redraw implements double buffering. The screen gets updated each time, the scene gets completly drawn.
+
+Bytes 0000 and 0001 of the emulated ram contain the letters Z and X. At start the game checks if this letters are present, then it modifies its code. You can find 
+: fast
+  return
+  return
+in the game. If running on the ZX chip8 emulator, the first return gets modified to f0e0.
+

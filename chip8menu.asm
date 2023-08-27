@@ -1,6 +1,9 @@
 
 chip8Menu:
         di
+        ld      a,WHITE*PAPER+BLACK
+        ld      (charAttrib),a
+
         call    clearScreen
         ld      bc,$0800
         call    printSetAt

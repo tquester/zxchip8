@@ -1600,12 +1600,25 @@ checkMultipleHexKeyLoop:
                 call    translateHexKeybardA
                 cp      a,b
                 jr      nz,checkMultipleHexKeyLoop
+checkMultipleHexKeyFound:                
                 ld      a,1
                 pop     hl
                 pop     bc
                 cp      0
                 ret
 checkMultipleHexKeyNotFound:
+                push    bc
+                call    getKempstonKey
+                pop     bc
+                cp      0
+                jr      z,checkMultipleHexKeyNotFound2
+                call    translateHexKeybardA
+                cp      a,b
+                jr      z,checkMultipleHexKeyFound
+
+
+
+checkMultipleHexKeyNotFound2:                
                 ld      a,0
                 pop     hl
                 pop     bc

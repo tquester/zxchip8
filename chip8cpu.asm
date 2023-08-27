@@ -674,7 +674,7 @@ chip8illegal:    if      breakonunknown=1
                 push    hl
                 push    af
                 call    printf
-                db      "/nUnknown command 8x%x at %lx/n",0
+                db      "/nUnknown command 0x%x at %lx/n",0
                 call    GetKey
                 ld      a,DEBUG_STEP
                 ld      (debug_go),a

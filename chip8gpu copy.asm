@@ -1447,6 +1447,14 @@ checkMultipleHexKeyA:
                 push    bc
                 push    hl
                 ld      b,a
+                call    getKempstonKey
+                cp      0
+                jr      z,checkMultipleHexKeyNoJoystick
+                cp      b
+                jr      z,checkMultipleHexKeyFound
+                jr      
+
+checkMultipleHexKeyNoJoystick
                 call    ReadMKeyboard       
                 ld      hl,ReadKeyboardPressedKeys
 checkMultipleHexKeyLoop:
@@ -1457,6 +1465,7 @@ checkMultipleHexKeyLoop:
                 call    translateHexKeybardA
                 cp      a,b
                 jr      nz,checkMultipleHexKeyLoop
+checkMultipleHexKeyFound:                
                 ld      a,1
                 pop     hl
                 pop     bc

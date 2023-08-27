@@ -143,6 +143,33 @@ printCarriageReturn:
 	jr		printAEnd
 
 
+GetKeyOrJoystick		call	ReadKeyboard
+						cp		0
+						jr		nz, GetKeyOrJoystick2
+						ld 		bc,31
+						in 		a,(c)
+						and		31
+						ld		b,a
+;						push	af
+;						push	bc
+;						ld		c,b
+;						push	bc
+;						call	printf
+;						db		"%@0002K:%x  ",0
+;						pop		bc
+;						pop		af
+						cp		0
+						jr		z, GetKeyOrJoystick
+						ld		a,$ff
+						ret
+
+GetKeyOrJoystick2:		push 	af
+GetKeyOrJoystick3:		call    ReadKeyboard
+                        cp      0
+                        jr      nz,GetKeyOrJoystick3
+                        pop     af
+                        ret				
+
 GetKey:                 call    ReadKeyboard
                         cp      0
                         jr      z,GetKey
