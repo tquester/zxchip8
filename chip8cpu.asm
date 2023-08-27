@@ -1083,7 +1083,7 @@ chip8f29:       ; i = font sprite x     ; 8x5 font
                 add     hl,hl   ; *2
                 add     hl,hl   ; *4
                 add     hl,bc   ; *5
-;                add     hl,de   ; + base
+                add     hl,de   ; + base
                 ld      (ix+reg_i),hl
                 ret
 chip8f30:       ; i= font sprite x   ; 16x10 font

@@ -6,8 +6,8 @@ chip8KemstonMenu:
         db      "%@0800ZXChip8%@0702Kemston Joystick/n/n",0
 
 chip8kemstonMenuLoop:        
-        call     printf
-        db       "%@01f5Press any key\n then move the joystick/nEnter to exit",0
+;        call     printf
+;        db       "%@0103Press any key\nthen move the joystick/nEnter to exit",0
         call    kprintkeys
         call    printJoyAssignment
         ld      hl,strOff
@@ -19,6 +19,7 @@ chip8kemstonMenuLoop:
         ld      b,0
         ld      c,14
         call    printSetAt
+        
         call    printf
         db      "Kempston is %s/n/n"
     
@@ -26,6 +27,7 @@ chip8kemstonMenuLoop:
         db      "/tK/tKempston on/off/n/n"
         db      "Press any key listed in the/ntable then press key on "
         db      "the/n joystick.",0
+
         
 chip8KempstonKeyLoop:       
         call     GetKeyOrJoystick
