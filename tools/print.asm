@@ -660,5 +660,5 @@ charX				db		0
 charY				db		0
 
 
-charAttrib			db		WHITE*INK+BLACK
+charAttrib			db		WHITE*PAPER+BLACK
 

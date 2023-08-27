@@ -250,14 +250,14 @@ bigfont:
 fontsize 		equ  $-chip8Memory
 
 				defs	$200-fontsize,0
-	incbin "samples/EnterTheMine.ch8"
+;	incbin "samples/EnterTheMine.ch8"
 ;	incbin "D:\Emulator\chip8\chip8roms\Chip8-04-01-2022\Verisimilitudes\Asphyxiation (Verisimilitudes)(2020).ch8"
 ;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/Chip-8-Demos/2-Tests/Keypad Test [Hap, 2006].ch8"
 ;	incbin "D:/Emulator/chip8/Toms Test Suite/5-quirks.ch8"
 ;	incbin "D:/Emulator/chip8/SuperChip8-Games/Black Rainbow (by John Earnest)(2016).sc8"
 ;	incbin "intro_scrolltest.ch8"
-;	incbin "intro.ch8"
+	incbin "intro.ch8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/10 Bytes Pattern (by Bjorn Kempen)(2015).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/By the Moon (SystemLogoff)(2019).sc8"
 ;	incbin "D:/Emulator/chip8/chip8roms/SuperChip8-Demos/Progs & Demos/Line Demo (unknown aauthor)(20xx).sc8"
@@ -370,11 +370,11 @@ chip8Game7X		/*db		"Missile Command ",0
 chip8Game8:		dw		chip8Game8X-chip8Game8
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Missile Command (by David Winter)(19xx).ch8"
 				*/
-chip8Game8X		db		"Clostro",0
-				incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Chip-8 Games/Clostro.txt"
+chip8Game8X		db		"Enter the mine",0
+				incbin "samples/EnterTheMine.txt"
 				db 		0
 chip8Game9:		dw		chip8Game9X-chip8Game9				
-				incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Chip-8 Games/Clostro (jibbl)(2020).ch8"
+				incbin "samples/EnterTheMine.ch8"
 chip8Game9X 	/*
 
 				db		"The maze",0

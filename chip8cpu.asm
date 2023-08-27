@@ -133,6 +133,7 @@ cpuKeyInfo:
     call    clearScreen
     call    printMenuHint
     call    updateGameScreen
+    call    setCurrentScreenAttributes
     ret
 
 

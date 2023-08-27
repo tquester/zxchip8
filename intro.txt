@@ -4,8 +4,10 @@ ZX Chip 8 Emulator
 https://github.com/tquester/
 zxchip8
 
-Press M for Menu 
-Press 0 for Debug
+Menu
+M Menu               0 Debug
+I Info               5 Reset
+P Change colors
 
 In order to install new games
 you need c8tapegen, install it

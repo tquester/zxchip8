@@ -157,7 +157,6 @@ updateScreenChip8Loop1:
                 add     hl,de
                 ld      a,(hl)
                 cp      0
-;                jr      updateScreenChip8Loop1a
                 jr      nz, updateScreenChip8Loop1a
 ; line is not dirty, so go to next line
                 ld      a,(screen_mag_y)
@@ -1621,6 +1620,8 @@ readHexKeyboard:
 readHexKeyboardNoKey:
                 ld      bc,$0017
                 call    printSetAt
+                ld      a,LIGHTBLUE*PAPER+BLACK
+                ld      (charAttrib),a
                 call    printtext
                 db      "Key:-",0
                 ld      a,$ff
@@ -1646,6 +1647,9 @@ readHexKeyboard2:
                 ld      a,23
                 ld      (charY),a
                 push    af
+                ld      a,LIGHTBLUE*PAPER+BLACK
+                ld      (charAttrib),a
+
                 call    printtext
                 db      "Key:",0
                 pop     af
@@ -1658,6 +1662,9 @@ readHexKeyboard2:
 readHexKeyboardNoKey2:
                 ld      bc,$0017
                 call    printSetAt
+                ld      a,LIGHTBLUE*PAPER+BLACK
+                ld      (charAttrib),a
+
                 call    printtext
                 db      "Key:-",0
                 ld      a,$ff

@@ -135,6 +135,7 @@ debuggerMainKey:
             jr      debuggerMainKey
 debuggerQuit:
             call    clearScreen
+            call    setCurrentScreenAttributes
             ld      hl,chip8Screen
             ld      bc,0
             call    updateGameScreen
@@ -269,7 +270,8 @@ debuggerScreenEnd:
             ret
 
 printcpu:
-    PUSHA   
+    PUSHA
+    call    clearLowerScreenWhite  
 ;    ld      a,$16*8
 ;    call    clearTextLine
 ;    ld      a,$17*8
@@ -410,12 +412,7 @@ dodebug_update:
     call    updateGameScreen:
     jr      dodebug_end2
 dodebug_run7:
-    ld      a,17*8
-    ld      b,6
-dodebug_run7_loop:
-    call    clearTextLine
-    add     a,8
-    djnz    dodebug_run7_loop
+    call    clearLowerScreenBlue
     ld      a,DEBUG_RUN
     ld      (debug_go),a
     call    printMenuHint

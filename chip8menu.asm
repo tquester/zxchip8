@@ -199,7 +199,7 @@ strNo:     db       "No",0
 printMenuHintBig:    
                 ld      a,(charAttrib);
                 push    af
-                ld      a,LIGHTBLUE*INK+BLACK
+                ld      a,LIGHTBLUE*PAPER+BLACK
                 ld      (charAttrib),a
                 call    printf
                 db      "%@06141234/t123C/t0=Debug   "

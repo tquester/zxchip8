@@ -12,7 +12,7 @@ screen_char_maxy        EQU     24
 
 CHARSET				    EQU		15360
 
-INK						EQU		8
+PAPER					EQU		8
 
 BLACK					equ 	0
 BLUE					equ		1
@@ -317,7 +317,7 @@ setCurrentScreenAttributes:
                 call    setGameScreenAttributes
                 ld      hl,SCREEN_ATTR+32*16
                 ld      bc,(24-16)*32
-                ld      a,LIGHTBLUE*INK+BLACK
+                ld      a,LIGHTBLUE*PAPER+BLACK
                 call    setGameScreenAttributesHLBC
 
                 ret
@@ -342,10 +342,10 @@ setGameScreenAttributesLoop:
                 pop     bc
                 ret
 
-screenAttribs:  db      BLACK*INK+WHITE
-                db      WHITE*INK+BLACK
-                db      BLUE*INK+WHITE
-                db      WHITE*INK+BLUE
+screenAttribs:  db      BLACK*PAPER+WHITE
+                db      WHITE*PAPER+BLACK
+                db      BLUE*PAPER+WHITE
+                db      WHITE*PAPER+BLUE
 screenCurAttrib db      0
 screenMaxAttrib equ     screenCurAttrib-screenAttribs						
 
@@ -368,7 +368,7 @@ clearScreenLoop:	ld		a,0
 					ld		hl, SCREEN_ATTR
 					ld		bc, attrib_len
 					
-clearAttribLoop:	ld		a, WHITE*INK+BLACK
+clearAttribLoop:	ld		a, WHITE*PAPER+BLACK
 					ld		(hl),a
 					inc		hl
 					dec		bc
@@ -383,6 +383,42 @@ clearAttribLoop:	ld		a, WHITE*INK+BLACK
 					pop		bc
 					pop		af
 					ret 	
+
+
+clearLowerScreenWhite:
+					ld		a,WHITE*PAPER+BLACK
+					jr  	clearLowerScreen
+clearLowerScreenBlue:
+					ld		a,LIGHTBLUE*PAPER+BLACK
+
+
+; clears the screen from line 16 to 24 with the color in a
+clearLowerScreen:	push	bc
+					push	hl
+					push	af
+					ld		c,129
+					ld		b,192-129
+clearLowerScreen1:	ld		a,c
+					call	calcLine
+					push	bc
+					ld		b,32
+					ld		a,0
+clearLowerScreen2:	ld		(hl),a
+					inc		hl
+					djnz	clearLowerScreen2
+					pop		bc
+					inc		c
+					djnz	clearLowerScreen1
+
+					pop		af
+					ld		hl,SCREEN_ATTR+32*16
+					ld		b,(24-16)*32
+clearLowerScreen3:	ld		(hl),a
+					inc		hl
+					djnz	clearLowerScreen3
+					pop		hl
+					pop		bc
+					ret																								
 
 markScreen:		push	af
 					push	bc

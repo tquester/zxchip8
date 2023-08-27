@@ -21,7 +21,7 @@ kprintkeys:
         ld      b,5
         ld      c,6
 chip8KemstonLine:
-        ld      a,WHITE*INK+BLACK
+        ld      a,WHITE*PAPER+BLACK
         ld      (charAttrib),a
         ld      a,(hl)
         cp      0
@@ -56,7 +56,7 @@ chip8KemstonEndPrint:
 
 
 c8kSetSelected:
-        ld      a,LIGHTBLUE*INK+BLACK
+        ld      a,LIGHTBLUE*PAPER+BLACK
         ld      (charAttrib),a
         ret
 
