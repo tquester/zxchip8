@@ -1,0 +1,2355 @@
+0200 label0002:       13 00       jump label0011
+0203 : data0003                   0x06	#     ##   
+0204                              0x29	#  # #  # )
+0205                              0x2f	#  # #### /
+0206                              0x20	#  #       
+0207                              0x2d	#  # ## # -
+0208                              0x46	# #   ##  F
+0209                              0x2f	#  # #### /
+020a                              0x23	#  #   ## #
+020b                              0x20	#  #       
+020c                              0x46	# #   ##  F
+020d                              0x28	#  # #    (
+020e                              0x24	#  #  #   $
+020f                              0x29	#  # #  # )
+0210                              0x20	#  #       
+0211                              0x00	#          
+0212                              0x0e	#    ###   
+0213                              0x1c	#   ###    
+0214                              0x2d	#  # ## # -
+0215                              0x24	#  #  #   $
+0216                              0x2a	#  # # #  *
+0217                              0x46	# #   ##  F
+0218                              0x32	#  ##  #  2
+0219                              0x1c	#   ###    
+021a                              0x2e	#  # ###  .
+021b                              0x46	# #   ##  F
+021c                              0x23	#  #   ## #
+021d                              0x20	#  #       
+021e                              0x2d	#  # ## # -
+021f                              0x20	#  #       
+0220                              0x41	# #     # A
+0221                              0x00	#          
+0222                              0x18	#   ##     
+0223                              0x20	#  #       
+0224                              0x27	#  #  ### '
+0225                              0x27	#  #  ### '
+0226                              0x46	# #   ##  F
+0227                              0x1f	#   #####  
+0228                              0x2a	#  # # #  *
+0229                              0x29	#  # #  # )
+022a                              0x20	#  #       
+022b                              0x41	# #     # A
+022c                              0x01	#       #  
+022d                              0x06	#     ##   
+022e                              0x29	#  # #  # )
+022f                              0x2f	#  # #### /
+0230                              0x20	#  #       
+0231                              0x2d	#  # ## # -
+0232                              0x46	# #   ##  F
+0233                              0x2f	#  # #### /
+0234                              0x23	#  #   ## #
+0235                              0x20	#  #       
+0236                              0x46	# #   ##  F
+0237                              0x28	#  # #    (
+0238                              0x24	#  #  #   $
+0239                              0x29	#  # #  # )
+023a                              0x20	#  #       
+023b                              0x41	# #     # A
+023c                              0x00	#          
+023d                              0x18	#   ##     
+023e                              0x23	#  #   ## #
+023f                              0x20	#  #       
+0240                              0x2d	#  # ## # -
+0241                              0x20	#  #       
+0242                              0x46	# #   ##  F
+0243                              0x24	#  #  #   $
+0244                              0x2e	#  # ###  .
+0245                              0x46	# #   ##  F
+0246                              0x06	#     ##   
+0247                              0x30	#  ##     0
+0248                              0x22	#  #   #  "
+0249                              0x20	#  #       
+024a                              0x29	#  # #  # )
+024b                              0x20	#  #       
+024c                              0x42	# #    #  B
+024d                              0x00	#          
+024e                              0x05	#     # #  
+024f                              0x2a	#  # # #  *
+0250                              0x46	# #   ##  F
+0251                              0x29	#  # #  # )
+0252                              0x2a	#  # # #  *
+0253                              0x2f	#  # #### /
+0254                              0x46	# #   ##  F
+0255                              0x2b	#  # # ## +
+0256                              0x27	#  #  ### '
+0257                              0x1c	#   ###    
+0258                              0x34	#  ## #   4
+0259                              0x46	# #   ##  F
+025a                              0x32	#  ##  #  2
+025b                              0x24	#  #  #   $
+025c                              0x2f	#  # #### /
+025d                              0x23	#  #   ## #
+025e                              0x46	# #   ##  F
+025f                              0x11	#   #   #  
+0260                              0x1c	#   ###    
+0261                              0x1e	#   ####   
+0262                              0x26	#  #  ##  &
+0263                              0x0e	#    ###   
+0264                              0x1c	#   ###    
+0265                              0x29	#  # #  # )
+0266                              0x00	#          
+0267                              0x0b	#    # ##  
+0268                              0x20	#  #       
+0269                              0x2f	#  # #### /
+026a                              0x46	# #   ##  F
+026b                              0x2e	#  # ###  .
+026c                              0x20	#  #       
+026d                              0x2f	#  # #### /
+026e                              0x46	# #   ##  F
+026f                              0x18	#   ##     
+0270                              0x24	#  #  #   $
+0271                              0x27	#  #  ### '
+0272                              0x27	#  #  ### '
+0273                              0x34	#  ## #   4
+0274                              0x01	#       #  
+0275                              0x27	#  #  ### '
+0276                              0x20	#  #       
+0277                              0x21	#  #    # !
+0278                              0x2f	#  # #### /
+0279                              0x46	# #   ##  F
+027a                              0x2e	#  # ###  .
+027b                              0x2a	#  # # #  *
+027c                              0x28	#  # #    (
+027d                              0x20	#  #       
+027e                              0x46	# #   ##  F
+027f                              0x21	#  #    # !
+0280                              0x30	#  ##     0
+0281                              0x20	#  #       
+0282                              0x27	#  #  ### '
+0283                              0x01	#       #  
+0284                              0x32	#  ##  #  2
+0285                              0x24	#  #  #   $
+0286                              0x27	#  #  ### '
+0287                              0x27	#  #  ### '
+0288                              0x46	# #   ##  F
+0289                              0x32	#  ##  #  2
+028a                              0x20	#  #       
+028b                              0x46	# #   ##  F
+028c                              0x21	#  #    # !
+028d                              0x24	#  #  #   $
+028e                              0x29	#  # #  # )
+028f                              0x1f	#   #####  
+0290                              0x46	# #   ##  F
+0291                              0x1c	#   ###    
+0292                              0x01	#       #  
+0293                              0x25	#  #  # # %
+0294                              0x20	#  #       
+0295                              0x2f	#  # #### /
+0296                              0x2b	#  # # ## +
+0297                              0x1c	#   ###    
+0298                              0x1e	#   ####   
+0299                              0x26	#  #  ##  &
+029a                              0x42	# #    #  B
+029b                              0x00	#          
+029c                              0x18	#   ##     
+029d                              0x20	#  #       
+029e                              0x27	#  #  ### '
+029f                              0x27	#  #  ### '
+02a0                              0x46	# #   ##  F
+02a1                              0x1f	#   #####  
+02a2                              0x2a	#  # # #  *
+02a3                              0x29	#  # #  # )
+02a4                              0x20	#  #       
+02a5                              0x41	# #     # A
+02a6                              0x00	#          
+02a6 label0004:       29 3b       :call label0094
+02a8 label0005:       6f 40       vf := 0x40
+02aa                  8f 27       vf =- v2
+02ac                  3f 00       if vf != 0x0 then
+02ae                  12 b6       jump label0006
+02b0                  a3 f2       i := data0022
+02b2                  29 45       :call label0095
+02b4                  12 a8       jump label0005
+02b6 label0006:       00 ee       return
+02b8 label0007:       81 54       v1 += v5
+02ba                  80 44       v0 += v4
+02bc                  45 00       if v5 == 0x0 then
+02be                  12 d0       jump label0008
+02c0                  8f 30       vf := v3
+02c2                  8f 15       vf -= v1
+02c4                  4f 00       if vf == 0x0 then
+02c6                  65 ff       v5 := 0xff
+02c8                  8f 20       vf := v2
+02ca                  8f 17       vf =- v1
+02cc                  4f 00       if vf == 0x0 then
+02ce                  65 01       v5 := 0x1
+02d0 label0008:       44 00       if v4 == 0x0 then
+02d2                  12 e4       jump label0009
+02d4                  8f 90       vf := v9
+02d6                  8f 07       vf =- v0
+02d8                  4f 00       if vf == 0x0 then
+02da                  64 01       v4 := 0x1
+02dc                  8f a0       vf := va
+02de                  8f 05       vf -= v0
+02e0                  4f 00       if vf == 0x0 then
+02e2                  64 ff       v4 := 0xff
+02e4 label0009:       87 b4       v7 += vb
+02e6                  47 ff       if v7 == 0xff then
+02e8                  22 f6       :call label0010
+02ea                  8f 80       vf := v8
+02ec                  8f 75       vf -= v7
+02ee                  4f 00       if vf == 0x0 then
+02f0                  22 f6       :call label0010
+02f2                  66 01       v6 := 0x1
+02f4                  00 ee       return
+02f6 label0010:       8f b0       vf := vb
+02f8                  6b 00       vb := 0x0
+02fa                  8b f5       vb -= vf
+02fc                  87 b4       v7 += vb
+02fe                  00 ee       return
+0300 label0011:       29 dd       :call label0106
+0302                  29 ff       :call label0108
+0304 label0012:       00 ff       hires
+0306                  00 e0       clear
+0308                  13 42       jump label0016
+030b : data0013                   0xfe	########   
+030c                              0x09	#    #  #  
+030d                              0x0e	#    ###   
+030e                              0x0f	#    ####  
+030f                              0xfe	########   
+0310                              0x05	#     # #  
+0311                              0xfe	########   
+0312                              0x09	#    #  #  
+0313                              0x10	#   #      
+0314                              0x11	#   #   #  
+0315                              0xfe	########   
+0316                              0x05	#     # #  
+0317                              0xff	#########  
+0318                              0xfe	########   
+0319                              0x0f	#    ####  
+031a                              0x04	#     #    
+031b                              0xfe	########   
+031c                              0x05	#     # #  
+031d                              0x06	#     ##   
+031e                              0xfe	########   
+031f                              0x05	#     # #  
+0320                              0x06	#     ##   
+0321                              0x00	#          
+0322                              0x00	#          
+0323                              0x00	#          
+0324                              0x05	#     # #  
+0325                              0xfd	####### #  
+0326                              0x10	#   #      
+0327                              0x01	#       #  
+0328                              0xff	#########  
+0329                              0xff	#########  
+032a                              0xff	#########  
+032b : data0014                   0x32	#  ##  #  2
+032c                              0x11	#   #   #  
+032d                              0x09	#    #  #  
+032e                              0x32	#  ##  #  2
+032f                              0x00	#          
+0330                              0x01	#       #  
+0331                              0x00	#          
+0332                              0x00	#          
+0333                              0x02	#      #   
+0334                              0x00	#          
+0335                              0xff	#########  
+0336                              0x01	#       #  
+0337 : data0015                   0x64	# ##  #   d
+0338                              0x08	#    #     
+0339                              0x09	#    #  #  
+033a                              0x32	#  ##  #  2
+033b                              0x00	#          
+033c                              0x01	#       #  
+033d                              0x00	#          
+033e                              0x00	#          
+033f                              0x02	#      #   
+0340                              0x00	#          
+0341                              0xff	#########  
+0342                              0x01	#       #  
+0342 label0016:       27 2f       :call label0052
+0344 label0017:       00 e0       clear
+0346                  22 a6       :call label0004
+0348                  61 00       v1 := 0x0
+034a                  62 00       v2 := 0x0
+034c                  63 00       v3 := 0x0
+034e                  29 cb       :call label0104
+0350                  a3 2a       i := data0014
+0352                  fb 65       load vb
+0354                  aa 19       i := data0115
+0356                  fb 55       save vb
+0358                  a3 36       i := data0015
+035a                  fb 65       load vb
+035c                  aa 25       i := data0116
+035e                  fb 55       save vb
+0360                  60 01       v0 := 0x1
+0362                  61 14       v1 := 0x14
+0364                  62 18       v2 := 0x18
+0366                  63 00       v3 := 0x0
+0368                  64 00       v4 := 0x0
+036a                  ab 99       i := data0122
+036c                  d1 20       sprite v1 v2 0x0
+036e                  aa 0d       i := data0112
+0370                  f4 55       save v4
+0372                  60 00       v0 := 0x0
+0374                  aa 0c       i := data0111
+0376                  f0 55       save v0
+0378 label0018:       60 03       v0 := 0x3
+037a                  e0 a1       if v0 key then
+037c                  14 c9       jump label0026
+037e                  60 04       v0 := 0x4
+0380                  e0 a1       if v0 key then
+0382                  15 8d       jump label0035
+0384                  28 f7       :call label0088
+0386                  3f 01       if vf != 0x1 then
+0388                  13 a8       jump label0019
+038a                  aa 0d       i := data0112
+038c                  f3 65       load v3
+038e                  6f 64       vf := 0x64
+0390                  8f 15       vf -= v1
+0392                  4f 00       if vf == 0x0 then
+0394                  13 e0       jump label0021
+0396                  6f 3c       vf := 0x3c
+0398                  8f 17       vf =- v1
+039a                  4f 00       if vf == 0x0 then
+039c                  13 04       jump label0012
+039e                  6f 56       vf := 0x56
+03a0                  8f 15       vf -= v1
+03a2                  4f 00       if vf == 0x0 then
+03a4                  13 44       jump label0017
+03a6                  26 85       :call label0049
+03a8 label0019:       aa 19       i := data0115
+03aa                  fb 65       load vb
+03ac                  46 01       if v6 == 0x1 then
+03ae                  23 cc       :call label0020
+03b0                  22 b8       :call label0007
+03b2                  23 cc       :call label0020
+03b4                  aa 19       i := data0115
+03b6                  fb 55       save vb
+03b8                  aa 25       i := data0116
+03ba                  fb 65       load vb
+03bc                  46 01       if v6 == 0x1 then
+03be                  23 cc       :call label0020
+03c0                  22 b8       :call label0007
+03c2                  23 cc       :call label0020
+03c4                  aa 25       i := data0116
+03c6                  fb 55       save vb
+03c8                  2a 07       :call label0110
+03ca                  13 78       jump label0018
+03cc label0020:       aa d9       i := data0118
+03ce                  8d 70       vd := v7
+03d0                  8d d4       vd += vd
+03d2                  8d d4       vd += vd
+03d4                  8e d0       ve := vd
+03d6                  8d d4       vd += vd
+03d8                  8d e4       vd += ve
+03da                  fd 1e       i += vd
+03dc                  d0 1c       sprite v0 v1 0xc
+03de                  00 ee       return
+03e0 label0021:       2a 03       :call label0109
+03e2                  00 e0       clear
+03e4                  61 00       v1 := 0x0
+03e6                  62 05       v2 := 0x5
+03e8                  63 1f       v3 := 0x1f
+03ea                  29 cb       :call label0104
+03ec                  f0 0a       v0 := key
+03ee                  00 e0       clear
+03f0                  14 c9       jump label0026
+03f3 : data0022                   0x00	#          
+03f4                              0x00	#          
+03f5                              0x00	#          
+03f6                              0x00	#          
+03f7                              0x00	#          
+03f8                              0x00	#          
+03f9                              0x00	#          
+03fa                              0x00	#          
+03fb                              0x00	#          
+03fc                              0x00	#          
+03fd                              0x00	#          
+03fe                              0x00	#          
+03ff                              0x00	#          
+0400                              0x00	#          
+0401                              0x00	#          
+0402                              0x00	#          
+0403                              0x00	#          
+0404                              0x00	#          
+0405                              0x00	#          
+0406                              0x00	#          
+0407                              0x00	#          
+0408                              0x00	#          
+0409                              0x00	#          
+040a                              0x00	#          
+040b                              0x00	#          
+040c                              0x00	#          
+040d                              0x00	#          
+040e                              0x00	#          
+040f                              0x00	#          
+0410                              0x00	#          
+0411                              0x00	#          
+0412                              0x00	#          
+0413                              0x00	#          
+0414                              0x00	#          
+0415                              0x00	#          
+0416                              0x00	#          
+0417                              0x00	#          
+0418                              0x00	#          
+0419                              0x00	#          
+041a                              0x00	#          
+041b                              0x00	#          
+041c                              0x00	#          
+041d                              0x00	#          
+041e                              0x00	#          
+041f                              0x00	#          
+0420                              0x00	#          
+0421                              0x00	#          
+0422                              0x00	#          
+0423                              0x00	#          
+0424                              0x00	#          
+0425                              0x00	#          
+0426                              0x00	#          
+0427                              0x00	#          
+0428                              0x00	#          
+0429                              0x00	#          
+042a                              0x00	#          
+042b                              0x00	#          
+042c                              0x00	#          
+042d                              0x00	#          
+042e                              0x00	#          
+042f                              0x00	#          
+0430                              0x00	#          
+0431                              0x00	#          
+0432                              0x00	#          
+0433                              0x00	#          
+0434                              0x00	#          
+0435                              0x00	#          
+0436                              0x00	#          
+0437                              0x00	#          
+0438                              0x00	#          
+0439                              0x00	#          
+043a                              0x00	#          
+043b                              0x00	#          
+043c                              0x00	#          
+043d                              0x00	#          
+043e                              0x00	#          
+043f                              0x00	#          
+0440                              0x00	#          
+0441                              0x00	#          
+0442                              0x00	#          
+0443                              0x00	#          
+0444                              0x00	#          
+0445                              0x00	#          
+0446                              0x00	#          
+0447                              0x00	#          
+0448                              0x00	#          
+0449                              0x00	#          
+044a                              0x00	#          
+044b                              0x00	#          
+044c                              0x00	#          
+044d                              0x00	#          
+044e                              0x00	#          
+044f                              0x00	#          
+0450                              0x00	#          
+0451                              0x00	#          
+0452                              0x00	#          
+0453                              0x00	#          
+0454                              0x00	#          
+0455                              0x00	#          
+0456                              0x00	#          
+0457                              0x00	#          
+0458                              0x00	#          
+0459                              0x00	#          
+045a                              0x00	#          
+045b                              0x00	#          
+045c                              0x00	#          
+045d                              0x00	#          
+045e                              0x00	#          
+045f                              0x00	#          
+0460                              0x00	#          
+0461                              0x00	#          
+0462                              0x00	#          
+0463                              0x00	#          
+0464                              0x00	#          
+0465                              0x00	#          
+0466                              0x00	#          
+0467                              0x00	#          
+0468                              0x00	#          
+0469                              0x00	#          
+046a                              0x00	#          
+046b                              0x00	#          
+046c                              0x00	#          
+046d                              0x00	#          
+046e                              0x00	#          
+046f                              0x00	#          
+0470                              0x00	#          
+0471                              0x00	#          
+0472                              0x00	#          
+0473                              0x00	#          
+0474                              0x00	#          
+0475                              0x00	#          
+0476                              0x00	#          
+0477                              0x00	#          
+0478                              0x00	#          
+0479                              0x00	#          
+047a                              0x00	#          
+047b                              0x00	#          
+047c                              0x00	#          
+047d                              0x00	#          
+047e                              0x00	#          
+047f                              0x00	#          
+0480                              0x00	#          
+0481                              0x00	#          
+0482                              0x00	#          
+0483 : data0023                   0x07	#     ###  
+0484                              0x08	#    #     
+0485                              0xfe	########   
+0486                              0x07	#     ###  
+0487                              0x0c	#    ##    
+0488                              0xff	#########  
+0489                              0x09	#    #  #  
+048a                              0x0a	#    # #   
+048b                              0xff	#########  
+048c                              0xff	#########  
+048d                              0x00	#          
+048e                              0x00	#          
+048f                              0x06	#     ##   
+0490                              0xfe	########   
+0491                              0x0c	#    ##    
+0492                              0x0c	#    ##    
+0493                              0xfd	####### #  
+0494                              0x04	#     #    
+0495                              0x01	#       #  
+0496                              0x03	#      ##  
+0497                              0x00	#          
+0498                              0x00	#          
+0499                              0xfd	####### #  
+049a                              0x05	#     # #  
+049b                              0x02	#      #   
+049c                              0x00	#          
+049d                              0x00	#          
+049e                              0x02	#      #   
+049f                              0x02	#      #   
+04a0                              0x01	#       #  
+04a1                              0x02	#      #   
+04a2                              0x03	#      ##  
+04a3                              0xfe	########   
+04a4                              0x0c	#    ##    
+04a5                              0x04	#     #    
+04a6                              0xfe	########   
+04a7                              0x0b	#    # ##  
+04a8                              0x06	#     ##   
+04a9                              0xfe	########   
+04aa                              0x03	#      ##  
+04ab                              0x05	#     # #  
+04ac                              0xfe	########   
+04ad                              0x0b	#    # ##  
+04ae                              0xfd	####### #  
+04af                              0x04	#     #    
+04b0                              0x01	#       #  
+04b1                              0x03	#      ##  
+04b2 : data0024                   0x2d	#  # ## # -
+04b3                              0x14	#   # #    
+04b4                              0x09	#    #  #  
+04b5                              0x1e	#   ####   
+04b6                              0x01	#       #  
+04b7                              0x00	#          
+04b8                              0x00	#          
+04b9                              0x00	#          
+04ba                              0x06	#     ##   
+04bb                              0x23	#  #   ## #
+04bc                              0x46	# #   ##  F
+04bd                              0x01	#       #  
+04be : data0025                   0x60	# ##      `
+04bf                              0x08	#    #     
+04c0                              0x08	#    #     
+04c1                              0x28	#  # #    (
+04c2                              0x00	#          
+04c3                              0x01	#       #  
+04c4                              0x00	#          
+04c5                              0x00	#          
+04c6                              0x06	#     ##   
+04c7                              0x7f	# ####### 
+04c8                              0x00	#          
+04c9                              0x01	#       #  
+04c9 label0026:       27 41       :call label0055
+04cb                  29 ff       :call label0108
+04cd                  00 e0       clear
+04cf                  22 a6       :call label0004
+04d1                  61 00       v1 := 0x0
+04d3                  62 3a       v2 := 0x3a
+04d5                  63 3a       v3 := 0x3a
+04d7                  29 cb       :call label0104
+04d9                  a4 b1       i := data0024
+04db                  fb 65       load vb
+04dd                  aa 19       i := data0115
+04df                  fb 55       save vb
+04e1                  a4 bd       i := data0025
+04e3                  fb 65       load vb
+04e5                  aa 25       i := data0116
+04e7                  fb 55       save vb
+04e9                  61 01       v1 := 0x1
+04eb                  62 10       v2 := 0x10
+04ed                  27 cd       :call label0072
+04ef                  28 72       :call label0081
+04f1                  29 ff       :call label0108
+04f3 label0027:       28 f7       :call label0088
+04f5                  6d 01       vd := 0x1
+04f7                  3f 01       if vf != 0x1 then
+04f9                  15 25       jump label0029
+04fb                  a8 f4       i := data0087
+04fd                  f2 65       load v2
+04ff                  41 0d       if v1 == 0xd then
+0501                  16 69       jump label0047
+0503                  41 09       if v1 == 0x9 then
+0505                  16 61       jump label0046
+0507                  41 08       if v1 == 0x8 then
+0509                  16 61       jump label0046
+050b                  31 0e       if v1 != 0xe then
+050d                  15 15       jump label0028
+050f                  42 05       if v2 == 0x5 then
+0511                  15 8d       jump label0035
+0513                  16 69       jump label0047
+0515 label0028:       41 00       if v1 == 0x0 then
+0517                  16 71       jump label0048
+0519                  aa 10       i := data0113
+051b                  f0 65       load v0
+051d                  40 fe       if v0 == 0xfe then
+051f                  15 25       jump label0029
+0521                  4d 01       if vd == 0x1 then
+0523                  14 c9       jump label0026
+0525 label0029:       25 4f       :call label0030
+0527                  4a 01       if va == 0x1 then
+0529                  14 c9       jump label0026
+052b                  aa 19       i := data0115
+052d                  fb 65       load vb
+052f                  46 01       if v6 == 0x1 then
+0531                  26 31       :call label0042
+0533                  22 b8       :call label0007
+0535                  26 31       :call label0042
+0537                  aa 19       i := data0115
+0539                  fb 55       save vb
+053b                  aa 25       i := data0116
+053d                  fb 65       load vb
+053f                  46 01       if v6 == 0x1 then
+0541                  26 31       :call label0042
+0543                  22 b8       :call label0007
+0545                  26 31       :call label0042
+0547                  aa 25       i := data0116
+0549                  fb 55       save vb
+054b                  2a 07       :call label0110
+054d                  14 f3       jump label0027
+054f label0030:       25 ff       :call label0039
+0551                  6a 00       va := 0x0
+0553                  83 00       v3 := v0
+0555                  aa 10       i := data0113
+0557                  f0 65       load v0
+0559                  30 00       if v0 != 0x0 then
+055b                  15 63       jump label0031
+055d                  43 00       if v3 == 0x0 then
+055f                  26 45       :call label0043
+0561                  15 73       jump label0032
+0563 label0031:       30 fe       if v0 != 0xfe then
+0565                  15 73       jump label0032
+0567                  6f 07       vf := 0x7
+0569                  8f 25       vf -= v2
+056b                  4f 00       if vf == 0x0 then
+056d                  6a 01       va := 0x1
+056f                  33 00       if v3 != 0x0 then
+0571                  26 4f       :call label0044
+0573 label0032:       00 ee       return
+0576 : data0033                   0x3c	#  ####   <
+0577                              0x25	#  #  # # %
+0578                              0x09	#    #  #  
+0579                              0x26	#  #  ##  &
+057a                              0x01	#       #  
+057b                              0x00	#          
+057c                              0x00	#          
+057d                              0x00	#          
+057e                              0x02	#      #   
+057f                              0x40	# #       @
+0580                              0x60	# ##      `
+0581                              0x01	#       #  
+0582 : data0034                   0x30	#  ##     0
+0583                              0x00	#          
+0584                              0x08	#    #     
+0585                              0x28	#  # #    (
+0586                              0x00	#          
+0587                              0x01	#       #  
+0588                              0x00	#          
+0589                              0x00	#          
+058a                              0x02	#      #   
+058b                              0x00	#          
+058c                              0xff	#########  
+058d                              0x01	#       #  
+058d label0035:       29 ff       :call label0108
+058f                  27 53       :call label0058
+0591 label0036:       00 e0       clear
+0593                  22 a6       :call label0004
+0595                  61 00       v1 := 0x0
+0597                  62 3a       v2 := 0x3a
+0599                  63 4b       v3 := 0x4b
+059b                  29 cb       :call label0104
+059d                  a5 75       i := data0033
+059f                  fb 65       load vb
+05a1                  aa 19       i := data0115
+05a3                  fb 55       save vb
+05a5                  a5 81       i := data0034
+05a7                  fb 65       load vb
+05a9                  aa 25       i := data0116
+05ab                  fb 55       save vb
+05ad                  2a 03       :call label0109
+05af                  61 01       v1 := 0x1
+05b1                  27 cd       :call label0072
+05b3                  28 72       :call label0081
+05b5                  29 ff       :call label0108
+05b7 label0037:       28 f7       :call label0088
+05b9                  6d 01       vd := 0x1
+05bb                  3f 01       if vf != 0x1 then
+05bd                  15 d5       jump label0038
+05bf                  a8 f4       i := data0087
+05c1                  f2 65       load v2
+05c3                  6f 05       vf := 0x5
+05c5                  8f 15       vf -= v1
+05c7                  3f 00       if vf != 0x0 then
+05c9                  15 d5       jump label0038
+05cb                  15 8d       jump label0035
+05ce                              0xaa	## # # #   
+05cf                              0x10	#   #      
+05d0                              0xf0	#####      
+05d1                              0x65	# ##  # # e
+05d2                              0x40	# #       @
+05d3                              0xfe	########   
+05d4                              0x15	#   # # #  
+05d5                              0xd5	### # # #  
+05d5 label0038:       25 4f       :call label0030
+05d7                  4a 01       if va == 0x1 then
+05d9                  15 91       jump label0036
+05db                  aa 19       i := data0115
+05dd                  fb 65       load vb
+05df                  46 01       if v6 == 0x1 then
+05e1                  26 09       :call label0040
+05e3                  22 b8       :call label0007
+05e5                  26 09       :call label0040
+05e7                  aa 19       i := data0115
+05e9                  fb 55       save vb
+05eb                  aa 25       i := data0116
+05ed                  fb 65       load vb
+05ef                  46 01       if v6 == 0x1 then
+05f1                  26 1d       :call label0041
+05f3                  22 b8       :call label0007
+05f5                  26 1d       :call label0041
+05f7                  aa 25       i := data0116
+05f9                  fb 55       save vb
+05fb                  2a 07       :call label0110
+05fd                  15 b7       jump label0037
+05ff label0039:       a8 f4       i := data0087
+0601                  f2 65       load v2
+0603                  72 02       v2 += 0x2
+0605                  a3 f2       i := data0022
+0607                  19 2b       jump label0093
+0609 label0040:       ab 51       i := data0120
+060b                  8d 70       vd := v7
+060d                  8d d4       vd += vd
+060f                  8d d4       vd += vd
+0611                  8e d0       ve := vd
+0613                  8d d4       vd += vd
+0615                  8d e4       vd += ve
+0617                  fd 1e       i += vd
+0619                  d0 1c       sprite v0 v1 0xc
+061b                  00 ee       return
+061d label0041:       ab 75       i := data0121
+061f                  8d 70       vd := v7
+0621                  8d d4       vd += vd
+0623                  8d d4       vd += vd
+0625                  8e d0       ve := vd
+0627                  8d d4       vd += vd
+0629                  8d e4       vd += ve
+062b                  fd 1e       i += vd
+062d                  d0 1c       sprite v0 v1 0xc
+062f                  00 ee       return
+0631 label0042:       aa fd       i := data0119
+0633                  8d 70       vd := v7
+0635                  8d d4       vd += vd
+0637                  8d d4       vd += vd
+0639                  8e d0       ve := vd
+063b                  8d d4       vd += vd
+063d                  8d e4       vd += ve
+063f                  fd 1e       i += vd
+0641                  d0 1c       sprite v0 v1 0xc
+0643                  00 ee       return
+0645 label0043:       28 72       :call label0081
+0647                  60 fe       v0 := 0xfe
+0649                  aa 10       i := data0113
+064b                  f0 55       save v0
+064d                  00 ee       return
+064f label0044:       28 72       :call label0081
+0651                  aa 10       i := data0113
+0653                  f0 65       load v0
+0655                  30 fe       if v0 != 0xfe then
+0657                  16 5f       jump label0045
+0659                  60 00       v0 := 0x0
+065b                  aa 10       i := data0113
+065d                  f0 55       save v0
+065f label0045:       00 ee       return
+0661 label0046:       61 09       v1 := 0x9
+0663                  62 00       v2 := 0x0
+0665                  29 67       :call label0098
+0667                  15 25       jump label0029
+0669 label0047:       61 0f       v1 := 0xf
+066b                  62 03       v2 := 0x3
+066d                  29 67       :call label0098
+066f                  15 25       jump label0029
+0671 label0048:       61 00       v1 := 0x0
+0673                  62 00       v2 := 0x0
+0675                  29 67       :call label0098
+0677                  71 01       v1 += 0x1
+0679                  29 67       :call label0098
+067b                  72 01       v2 += 0x1
+067d                  29 67       :call label0098
+067f                  71 ff       v1 += 0xff
+0681                  29 67       :call label0098
+0683                  15 25       jump label0029
+0685 label0049:       aa 0c       i := data0111
+0687                  f0 65       load v0
+0689                  40 01       if v0 == 0x1 then
+068b                  00 ee       return
+068d                  60 01       v0 := 0x1
+068f                  aa 0c       i := data0111
+0691                  f0 55       save v0
+0693                  61 00       v1 := 0x0
+0695                  62 05       v2 := 0x5
+0697                  63 0f       v3 := 0xf
+0699                  29 cb       :call label0104
+069b                  00 ee       return
+069e : data0050                   0xfe	########   
+069f                              0x0f	#    ####  
+06a0                              0x04	#     #    
+06a1                              0xfe	########   
+06a2                              0x0f	#    ####  
+06a3                              0x05	#     # #  
+06a4                              0xfe	########   
+06a5                              0x0d	#    ## #  
+06a6                              0x01	#       #  
+06a7                              0x01	#       #  
+06a8                              0x01	#       #  
+06a9                              0x01	#       #  
+06aa                              0x02	#      #   
+06ab                              0x03	#      ##  
+06ac                              0xff	#########  
+06ad                              0x00	#          
+06ae                              0x00	#          
+06af                              0x01	#       #  
+06b0                              0x02	#      #   
+06b1                              0x03	#      ##  
+06b2                              0xfe	########   
+06b3                              0x09	#    #  #  
+06b4                              0x12	#   #  #   
+06b5                              0x13	#   #  ##  
+06b6                              0xfe	########   
+06b7                              0x04	#     #    
+06b8                              0x02	#      #   
+06b9                              0x02	#      #   
+06ba                              0xfe	########   
+06bb                              0x08	#    #     
+06bc                              0x14	#   # #    
+06bd                              0x15	#   # # #  
+06be                              0xfe	########   
+06bf                              0x07	#     ###  
+06c0                              0x02	#      #   
+06c1                              0x02	#      #   
+06c2                              0x00	#          
+06c3                              0x00	#          
+06c4                              0xfd	####### #  
+06c5                              0x05	#     # #  
+06c6                              0x01	#       #  
+06c7                              0xff	#########  
+06c8                              0x63	# ##   ## c
+06c9                              0x01	#       #  
+06ca                              0x64	# ##  #   d
+06cb                              0x00	#          
+06cc                              0x6f	# ## #### o
+06cd                              0x08	#    #     
+06ce                              0x8f	##   ####  
+06cf                              0x35	#  ## # # 5
+06d0                              0x4f	# #  #### O
+06d1                              0x00	#          
+06d2                              0x17	#   # ###  
+06d3                              0x21	#  #    # !
+06d4                              0xf0	#####      
+06d5                              0x65	# ##  # # e
+06d6                              0x30	#  ##     0
+06d7                              0xff	#########  
+06d8                              0x16	#   # ##   
+06d9                              0xe3	####   ##  
+06da                              0x91	##  #   #  
+06db                              0x30	#  ##     0
+06dc                              0x17	#   # ###  
+06dd                              0x21	#  #    # !
+06de                              0x64	# ##  #   d
+06df                              0x00	#          
+06e0                              0x73	# ###  ## s
+06e1                              0x01	#       #  
+06e2                              0x17	#   # ###  
+06e3                              0x1f	#   #####  
+06e4                              0x30	#  ##     0
+06e5                              0xfe	########   
+06e6                              0x16	#   # ##   
+06e7                              0xf7	##### ###  
+06e8                              0xf0	#####      
+06e9                              0x65	# ##  # # e
+06ea                              0x84	##    #    
+06eb                              0x04	#     #    
+06ec                              0x52	# # #  #  R
+06ed                              0x30	#  ##     0
+06ee                              0x16	#   # ##   
+06ef                              0xf7	##### ###  
+06f0                              0x8f	##   ####  
+06f1                              0x40	# #       @
+06f2                              0x8f	##   ####  
+06f3                              0x17	#   # ###  
+06f4                              0x4f	# #  #### O
+06f5                              0x00	#          
+06f6                              0x17	#   # ###  
+06f7                              0x21	#  #    # !
+06f8                              0x3d	#  #### # =
+06f9                              0xfd	####### #  
+06fa                              0x17	#   # ###  
+06fb                              0x0d	#    ## #  
+06fc                              0xf0	#####      
+06fd                              0x65	# ##  # # e
+06fe                              0x84	##    #    
+06ff                              0x04	#     #    
+0700                              0xf0	#####      
+0701                              0x65	# ##  # # e
+0702                              0x52	# # #  #  R
+0703                              0x30	#  ##     0
+0704                              0x17	#   # ###  
+0705                              0x0d	#    ## #  
+0706                              0x8f	##   ####  
+0707                              0x40	# #       @
+0708                              0x8f	##   ####  
+0709                              0x17	#   # ###  
+070a                              0x4f	# #  #### O
+070b                              0x00	#          
+070c                              0x17	#   # ###  
+070d                              0x23	#  #   ## #
+070e                              0x52	# # #  #  R
+070f                              0x30	#  ##     0
+0710                              0x17	#   # ###  
+0711                              0x15	#   # # #  
+0712                              0x91	##  #   #  
+0713                              0x40	# #       @
+0714                              0x17	#   # ###  
+0715                              0x23	#  #   ## #
+0716                              0x73	# ###  ## s
+0717                              0x01	#       #  
+0718                              0x33	#  ##  ## 3
+0719                              0x0f	#    ####  
+071a                              0x17	#   # ###  
+071b                              0x1f	#   #####  
+071c                              0x63	# ##   ## c
+071d                              0x00	#          
+071e                              0x64	# ##  #   d
+071f                              0x01	#       #  
+0720                              0x16	#   # ##   
+0721                              0xcb	###  # ##  
+0722                              0x60	# ##      `
+0723                              0x00	#          
+0724                              0x00	#          
+0725                              0xee	#### ###   
+0725 label0051:       61 00       v1 := 0x0
+0727                  62 00       v2 := 0x0
+0729                  63 00       v3 := 0x0
+072b                  64 00       v4 := 0x0
+072d                  00 ee       return
+072f label0052:       27 25       :call label0051
+0731 label0053:       6f 09       vf := 0x9
+0733                  8f 37       vf =- v3
+0735                  3f 00       if vf != 0x0 then
+0737                  17 3f       jump label0054
+0739                  a3 0a       i := data0013
+073b                  27 8d       :call label0066
+073d                  17 31       jump label0053
+073f label0054:       00 ee       return
+0741 label0055:       27 25       :call label0051
+0743 label0056:       6f 09       vf := 0x9
+0745                  8f 37       vf =- v3
+0747                  3f 00       if vf != 0x0 then
+0749                  17 51       jump label0057
+074b                  a4 82       i := data0023
+074d                  27 8d       :call label0066
+074f                  17 43       jump label0056
+0751 label0057:       00 ee       return
+0753 label0058:       27 25       :call label0051
+0755 label0059:       6f 09       vf := 0x9
+0757                  8f 37       vf =- v3
+0759                  3f 00       if vf != 0x0 then
+075b                  17 63       jump label0060
+075d                  a6 9d       i := data0050
+075f                  27 8d       :call label0066
+0761                  17 55       jump label0059
+0763 label0060:       00 ee       return
+0765 label0061:       34 10       if v4 != 0x10 then
+0767                  17 6d       jump label0062
+0769                  64 00       v4 := 0x0
+076b                  73 01       v3 += 0x1
+076d label0062:       00 ee       return
+076f label0063:       a3 f2       i := data0022
+0771                  f2 1e       i += v2
+0773                  f0 55       save v0
+0775                  72 01       v2 += 0x1
+0777                  74 01       v4 += 0x1
+0779                  00 ee       return
+077b label0064:       6f 00       vf := 0x0
+077d                  8f 65       vf -= v6
+077f                  3f 00       if vf != 0x0 then
+0781                  17 8b       jump label0065
+0783                  27 6f       :call label0063
+0785                  27 65       :call label0061
+0787                  76 ff       v6 += 0xff
+0789                  17 7b       jump label0064
+078b label0065:       00 ee       return
+078d label0066:       f1 1e       i += v1
+078f                  f0 65       load v0
+0791                  71 01       v1 += 0x1
+0793                  30 ff       if v0 != 0xff then
+0795                  17 ab       jump label0069
+0797                  60 00       v0 := 0x0
+0799 label0067:       6f 10       vf := 0x10
+079b                  8f 47       vf =- v4
+079d                  3f 00       if vf != 0x0 then
+079f                  17 a5       jump label0068
+07a1                  27 6f       :call label0063
+07a3                  17 99       jump label0067
+07a5 label0068:       73 01       v3 += 0x1
+07a7                  64 00       v4 := 0x0
+07a9                  00 ee       return
+07ab label0069:       30 fe       if v0 != 0xfe then
+07ad                  17 b9       jump label0070
+07af                  f0 65       load v0
+07b1                  86 00       v6 := v0
+07b3                  71 01       v1 += 0x1
+07b5                  60 00       v0 := 0x0
+07b7                  17 7b       jump label0064
+07b9 label0070:       30 fd       if v0 != 0xfd then
+07bb                  17 c7       jump label0071
+07bd                  f0 65       load v0
+07bf                  86 00       v6 := v0
+07c1                  f0 65       load v0
+07c3                  71 02       v1 += 0x2
+07c5                  17 7b       jump label0064
+07c7 label0071:       27 6f       :call label0063
+07c9                  27 65       :call label0061
+07cb                  00 ee       return
+07cd label0072:       60 01       v0 := 0x1
+07cf                  63 00       v3 := 0x0
+07d1                  64 00       v4 := 0x0
+07d3                  ab 99       i := data0122
+07d5                  d1 20       sprite v1 v2 0x0
+07d7                  aa 0d       i := data0112
+07d9                  f4 55       save v4
+07db                  00 ee       return
+07dd label0073:       aa 13       i := data0114
+07df                  f4 55       save v4
+07e1                  aa 0d       i := data0112
+07e3                  f4 65       load v4
+07e5                  28 1d       :call label0079
+07e7                  00 ee       return
+07e9 label0074:       28 1d       :call label0079
+07eb                  aa 0d       i := data0112
+07ed                  f4 55       save v4
+07ef                  aa 13       i := data0114
+07f1                  f4 65       load v4
+07f3                  00 ee       return
+07f5 label0075:       27 dd       :call label0073
+07f7                  60 01       v0 := 0x1
+07f9                  17 e9       jump label0074
+07fb label0076:       27 dd       :call label0073
+07fd                  60 ff       v0 := 0xff
+07ff                  17 e9       jump label0074
+0801 label0077:       28 72       :call label0081
+0803                  27 dd       :call label0073
+0805                  43 00       if v3 == 0x0 then
+0807                  63 01       v3 := 0x1
+0809                  17 e9       jump label0074
+080b label0078:       aa 13       i := data0114
+080d                  f4 55       save v4
+080f                  aa 0d       i := data0112
+0811                  f4 65       load v4
+0813                  33 00       if v3 != 0x0 then
+0815                  28 96       :call label0082
+0817                  aa 13       i := data0114
+0819                  f4 65       load v4
+081b                  00 ee       return
+081d label0079:       ab 99       i := data0122
+081f                  40 ff       if v0 == 0xff then
+0821                  ac 39       i := data0123
+0823                  f4 1e       i += v4
+0825                  d1 20       sprite v1 v2 0x0
+0827                  00 ee       return
+0829 label0080:       aa 0d       i := data0112
+082b                  f2 65       load v2
+082d                  71 04       v1 += 0x4
+082f                  81 16       v1 >>= v1
+0831                  81 16       v1 >>= v1
+0833                  81 16       v1 >>= v1
+0835                  82 26       v2 >>= v2
+0837                  82 26       v2 >>= v2
+0839                  82 26       v2 >>= v2
+083b                  a8 f4       i := data0087
+083d                  f2 55       save v2
+083f                  00 ee       return
+0842                              0x00	#          
+0843                              0x00	#          
+0844                              0x00	#          
+0845                              0x00	#          
+0846                              0x00	#          
+0847                              0x00	#          
+0848                              0x00	#          
+0849                              0x00	#          
+084a                              0x00	#          
+084b                              0x00	#          
+084c                              0x00	#          
+084d                              0x00	#          
+084e                              0x00	#          
+084f                              0x00	#          
+0850                              0x00	#          
+0851                              0x00	#          
+0852                              0x00	#          
+0853                              0x00	#          
+0854                              0x00	#          
+0855                              0xa8	## # #     
+0856                              0x41	# #     # A
+0857                              0xf5	##### # #  
+0858                              0x1e	#   ####   
+0859                              0x75	# ### # # u
+085a                              0x01	#       #  
+085b                              0xf0	#####      
+085c                              0x65	# ##  # # e
+085d                              0xf0	#####      
+085e                              0x29	#  # #  # )
+085f                              0xd3	### #  ##  
+0860                              0x45	# #   # # E
+0861                              0x73	# ###  ## s
+0862                              0x06	#     ##   
+0863                              0x00	#          
+0864                              0xee	#### ###   
+0865                              0xa8	## # #     
+0866                              0x41	# #     # A
+0867                              0xf0	#####      
+0868                              0x33	#  ##  ## 3
+0869                              0x65	# ##  # # e
+086a                              0x00	#          
+086b                              0x28	#  # #    (
+086c                              0x54	# # # #   T
+086d                              0x28	#  # #    (
+086e                              0x54	# # # #   T
+086f                              0x28	#  # #    (
+0870                              0x54	# # # #   T
+0871                              0x00	#          
+0872                              0xee	#### ###   
+0872 label0081:       00 ee       return
+0875                              0xa8	## # #     
+0876                              0x44	# #   #   D
+0877                              0xff	#########  
+0878                              0x55	# # # # # U
+0879                              0x28	#  # #    (
+087a                              0x29	#  # #  # )
+087b                              0x80	##         
+087c                              0x10	#   #      
+087d                              0x63	# ##   ## c
+087e                              0x00	#          
+087f                              0x64	# ##  #   d
+0880                              0x00	#          
+0881                              0x28	#  # #    (
+0882                              0x64	# ##  #   d
+0883                              0x73	# ###  ## s
+0884                              0x08	#    #     
+0885                              0x28	#  # #    (
+0886                              0x29	#  # #  # )
+0887                              0x80	##         
+0888                              0x20	#  #       
+0889                              0x28	#  # #    (
+088a                              0x64	# ##  #   d
+088b                              0x25	#  #  # # %
+088c                              0xff	#########  
+088d                              0x73	# ###  ## s
+088e                              0x08	#    #     
+088f                              0x28	#  # #    (
+0890                              0x64	# ##  #   d
+0891                              0xa8	## # #     
+0892                              0x44	# #   #   D
+0893                              0xff	#########  
+0894                              0x65	# ##  # # e
+0895                              0x00	#          
+0896                              0xee	#### ###   
+0896 label0082:       aa 0d       i := data0112
+0898                  f4 65       load v4
+089a                  43 00       if v3 == 0x0 then
+089c                  28 72       :call label0081
+089e                  ab 99       i := data0122
+08a0                  40 ff       if v0 == 0xff then
+08a2                  ac 39       i := data0123
+08a4                  f4 1e       i += v4
+08a6                  85 10       v5 := v1
+08a8                  86 20       v6 := v2
+08aa                  74 20       v4 += 0x20
+08ac                  44 a0       if v4 == 0xa0 then
+08ae                  64 00       v4 := 0x0
+08b0                  81 04       v1 += v0
+08b2                  41 ff       if v1 == 0xff then
+08b4                  61 00       v1 := 0x0
+08b6                  6f 74       vf := 0x74
+08b8                  8f 15       vf -= v1
+08ba                  4f 00       if vf == 0x0 then
+08bc                  61 74       v1 := 0x74
+08be                  33 fe       if v3 != 0xfe then
+08c0                  18 ca       jump label0083
+08c2                  72 01       v2 += 0x1
+08c4                  81 05       v1 -= v0
+08c6                  64 00       v4 := 0x0
+08c8                  18 e6       jump label0086
+08ca label0083:       6f 00       vf := 0x0
+08cc                  8f 35       vf -= v3
+08ce                  3f 00       if vf != 0x0 then
+08d0                  18 e6       jump label0086
+08d2                  6f 0f       vf := 0xf
+08d4                  8f 37       vf =- v3
+08d6                  3f 00       if vf != 0x0 then
+08d8                  18 de       jump label0084
+08da                  72 ff       v2 += 0xff
+08dc                  18 e0       jump label0085
+08de label0084:       72 01       v2 += 0x1
+08e0 label0085:       73 01       v3 += 0x1
+08e2                  43 1d       if v3 == 0x1d then
+08e4                  63 00       v3 := 0x0
+08e6 label0086:       d5 60       sprite v5 v6 0x0
+08e8                  28 1d       :call label0079
+08ea                  aa 0d       i := data0112
+08ec                  f4 55       save v4
+08ee                  43 00       if v3 == 0x0 then
+08f0                  28 72       :call label0081
+08f2                  00 ee       return
+08f5 : data0087                   0x00	#          
+08f6                              0x00	#          
+08f7                              0x00	#          
+08f7 label0088:       61 00       v1 := 0x0
+08f9                  60 09       v0 := 0x9
+08fb                  e0 9e       if v0 -key then
+08fd                  19 03       jump label0089
+08ff                  27 f5       :call label0075
+0901                  61 01       v1 := 0x1
+0903 label0089:       60 07       v0 := 0x7
+0905                  e0 9e       if v0 -key then
+0907                  19 0d       jump label0090
+0909                  27 fb       :call label0076
+090b                  61 01       v1 := 0x1
+090d label0090:       60 05       v0 := 0x5
+090f                  e0 a1       if v0 key then
+0911                  28 01       :call label0077
+0913                  6f 00       vf := 0x0
+0915                  31 01       if v1 != 0x1 then
+0917                  19 1d       jump label0091
+0919                  28 96       :call label0082
+091b                  19 1f       jump label0092
+091d label0091:       28 0b       :call label0078
+091f label0092:       8d f0       vd := vf
+0921                  28 29       :call label0080
+0923                  a8 f4       i := data0087
+0925                  f2 55       save v2
+0927                  8f d0       vf := vd
+0929                  00 ee       return
+092b label0093:       80 20       v0 := v2
+092d                  29 99       :call label0099
+092f                  80 04       v0 += v0
+0931                  80 14       v0 += v1
+0933                  a3 f2       i := data0022
+0935                  f0 1e       i += v0
+0937                  f0 65       load v0
+0939                  00 ee       return
+093b label0094:       61 00       v1 := 0x0
+093d                  62 00       v2 := 0x0
+093f                  63 00       v3 := 0x0
+0941                  64 0f       v4 := 0xf
+0943                  00 ee       return
+0945 label0095:       f3 1e       i += v3
+0947                  f0 65       load v0
+0949                  40 00       if v0 == 0x0 then
+094b                  19 57       jump label0096
+094d                  70 ff       v0 += 0xff
+094f                  29 99       :call label0099
+0951                  aa 31       i := data0117
+0953                  f0 1e       i += v0
+0955                  d1 28       sprite v1 v2 0x8
+0957 label0096:       71 08       v1 += 0x8
+0959                  53 40       if v3 != v4 then
+095b                  19 63       jump label0097
+095d                  74 10       v4 += 0x10
+095f                  61 00       v1 := 0x0
+0961                  72 08       v2 += 0x8
+0963 label0097:       73 01       v3 += 0x1
+0965                  00 ee       return
+0967 label0098:       a3 f2       i := data0022
+0969                  83 20       v3 := v2
+096b                  83 34       v3 += v3
+096d                  83 34       v3 += v3
+096f                  83 34       v3 += v3
+0971                  83 34       v3 += v3
+0973                  83 14       v3 += v1
+0975                  f3 1e       i += v3
+0977                  f0 65       load v0
+0979                  aa 31       i := data0117
+097b                  40 00       if v0 == 0x0 then
+097d                  00 ee       return
+097f                  70 ff       v0 += 0xff
+0981                  29 99       :call label0099
+0983                  f0 1e       i += v0
+0985                  84 10       v4 := v1
+0987                  85 20       v5 := v2
+0989                  84 44       v4 += v4
+098b                  84 44       v4 += v4
+098d                  84 44       v4 += v4
+098f                  85 54       v5 += v5
+0991                  85 54       v5 += v5
+0993                  85 54       v5 += v5
+0995                  d4 58       sprite v4 v5 0x8
+0997                  00 ee       return
+0999 label0099:       80 04       v0 += v0
+099b label0100:       80 04       v0 += v0
+099d                  80 04       v0 += v0
+099f                  00 ee       return
+09a1 label0101:       30 01       if v0 != 0x1 then
+09a3                  19 ab       jump label0102
+09a5                  61 00       v1 := 0x0
+09a7                  72 06       v2 += 0x6
+09a9                  00 ee       return
+09ab label0102:       70 fe       v0 += 0xfe
+09ad                  ac d9       i := data0124
+09af                  6f 1e       vf := 0x1e
+09b1                  8f 05       vf -= v0
+09b3                  3f 00       if vf != 0x0 then
+09b5                  19 bd       jump label0103
+09b7                  64 96       v4 := 0x96
+09b9                  f4 1e       i += v4
+09bb                  70 e2       v0 += 0xe2
+09bd label0103:       84 00       v4 := v0
+09bf                  29 9b       :call label0100
+09c1                  80 44       v0 += v4
+09c3                  f0 1e       i += v0
+09c5                  d1 25       sprite v1 v2 0x5
+09c7                  71 05       v1 += 0x5
+09c9                  00 ee       return
+09cb label0104:       a2 02       i := data0003
+09cd                  f3 1e       i += v3
+09cf                  f0 65       load v0
+09d1                  40 00       if v0 == 0x0 then
+09d3                  19 db       jump label0105
+09d5                  29 a1       :call label0101
+09d7                  73 01       v3 += 0x1
+09d9                  19 cb       jump label0104
+09db label0105:       00 ee       return
+09dd label0106:       a0 00       i := data0001
+09df                  f1 65       load v1
+09e1                  30 5a       if v0 != 0x5a then
+09e3                  19 fd       jump label0107
+09e5                  31 58       if v1 != 0x58 then
+09e7                  19 fd       jump label0107
+09e9                  60 f0       v0 := 0xf0
+09eb                  61 e0       v1 := 0xe0
+09ed                  a9 ff       i := label0108
+09ef                  f1 55       save v1
+09f1                  60 f1       v0 := 0xf1
+09f3                  aa 03       i := label0109
+09f5                  f1 55       save v1
+09f7                  60 f2       v0 := 0xf2
+09f9                  aa 07       i := label0110
+09fb                  f1 55       save v1
+09fd label0107:       00 ee       return
+09ff label0108:       00 ee       return
+0a02                              0x00	#          
+0a03                              0xee	#### ###   
+0a03 label0109:       00 ee       return
+0a06                              0x00	#          
+0a07                              0xee	#### ###   
+0a07 label0110:       00 ee       return
+0a0a                              0x00	#          
+0a0b                              0xee	#### ###   
+0a0c                              0x00	#          
+0a0d : data0111                   0x00	#          
+0a0e : data0112                   0x00	#          
+0a0f                              0x00	#          
+0a10                              0x00	#          
+0a11 : data0113                   0x00	#          
+0a12                              0x00	#          
+0a13                              0x00	#          
+0a14 : data0114                   0x00	#          
+0a15                              0x00	#          
+0a16                              0x00	#          
+0a17                              0x00	#          
+0a18                              0x00	#          
+0a19                              0x01	#       #  
+0a1a : data0115                   0x32	#  ##  #  2
+0a1b                              0x11	#   #   #  
+0a1c                              0x09	#    #  #  
+0a1d                              0x32	#  ##  #  2
+0a1e                              0x00	#          
+0a1f                              0x01	#       #  
+0a20                              0x00	#          
+0a21                              0x00	#          
+0a22                              0x02	#      #   
+0a23                              0x00	#          
+0a24                              0xff	#########  
+0a25                              0x01	#       #  
+0a26 : data0116                   0x64	# ##  #   d
+0a27                              0x08	#    #     
+0a28                              0x09	#    #  #  
+0a29                              0x32	#  ##  #  2
+0a2a                              0x00	#          
+0a2b                              0x01	#       #  
+0a2c                              0x00	#          
+0a2d                              0x00	#          
+0a2e                              0x02	#      #   
+0a2f                              0x00	#          
+0a30                              0xff	#########  
+0a31                              0x01	#       #  
+0a32 : data0117                   0xaa	## # # #   
+0a33                              0x55	# # # # # U
+0a34                              0xff	#########  
+0a35                              0xff	#########  
+0a36                              0x00	#          
+0a37                              0x00	#          
+0a38                              0x00	#          
+0a39                              0x00	#          
+0a3a                              0xff	#########  
+0a3b                              0xff	#########  
+0a3c                              0xff	#########  
+0a3d                              0xff	#########  
+0a3e                              0x00	#          
+0a3f                              0x00	#          
+0a40                              0x00	#          
+0a41                              0x00	#          
+0a42                              0x55	# # # # # U
+0a43                              0xaa	## # # #   
+0a44                              0x55	# # # # # U
+0a45                              0xaa	## # # #   
+0a46                              0x00	#          
+0a47                              0x00	#          
+0a48                              0x00	#          
+0a49                              0x00	#          
+0a4a                              0x00	#          
+0a4b                              0x00	#          
+0a4c                              0x1f	#   #####  
+0a4d                              0x10	#   #      
+0a4e                              0x10	#   #      
+0a4f                              0x10	#   #      
+0a50                              0x10	#   #      
+0a51                              0x10	#   #      
+0a52                              0x10	#   #      
+0a53                              0x1c	#   ###    
+0a54                              0x14	#   # #    
+0a55                              0x10	#   #      
+0a56                              0x10	#   #      
+0a57                              0x10	#   #      
+0a58                              0x10	#   #      
+0a59                              0x1f	#   #####  
+0a5a                              0x00	#          
+0a5b                              0x00	#          
+0a5c                              0x00	#          
+0a5d                              0x00	#          
+0a5e                              0x92	##  #  #   
+0a5f                              0x54	# # # #   T
+0a60                              0x28	#  # #    (
+0a61                              0x10	#   #      
+0a62                              0x00	#          
+0a63                              0x00	#          
+0a64                              0x00	#          
+0a65                              0x00	#          
+0a66                              0x00	#          
+0a67                              0x00	#          
+0a68                              0xff	#########  
+0a69                              0x80	##         
+0a6a                              0x00	#          
+0a6b                              0x00	#          
+0a6c                              0x00	#          
+0a6d                              0x00	#          
+0a6e                              0x00	#          
+0a6f                              0x00	#          
+0a70                              0xff	#########  
+0a71                              0x01	#       #  
+0a72                              0xb5	## ## # #  
+0a73                              0xa5	## #  # #  
+0a74                              0xb5	## ## # #  
+0a75                              0xa5	## #  # #  
+0a76                              0xa7	## #  ###  
+0a77                              0x80	##         
+0a78                              0xff	#########  
+0a79                              0x00	#          
+0a7a                              0x69	# ## #  # i
+0a7b                              0x49	# #  #  # I
+0a7c                              0x69	# ## #  # i
+0a7d                              0x49	# #  #  # I
+0a7e                              0x6d	# ## ## # m
+0a7f                              0x01	#       #  
+0a80                              0xff	#########  
+0a81                              0x00	#          
+0a82                              0x81	##      #  
+0a83                              0x42	# #    #  B
+0a84                              0x24	#  #  #   $
+0a85                              0x18	#   ##     
+0a86                              0x18	#   ##     
+0a87                              0x24	#  #  #   $
+0a88                              0x42	# #    #  B
+0a89                              0x81	##      #  
+0a8a                              0x00	#          
+0a8b                              0x00	#          
+0a8c                              0xc0	###        
+0a8d                              0xc2	###    #   
+0a8e                              0xc5	###   # #  
+0a8f                              0xfd	####### #  
+0a90                              0x05	#     # #  
+0a91                              0x02	#      #   
+0a92                              0x00	#          
+0a93                              0x00	#          
+0a94                              0x00	#          
+0a95                              0x22	#  #   #  "
+0a96                              0x22	#  #   #  "
+0a97                              0x2a	#  # # #  *
+0a98                              0x2a	#  # # #  *
+0a99                              0x2a	#  # # #  *
+0a9a                              0x1f	#   #####  
+0a9b                              0x20	#  #       
+0a9c                              0x7f	# ####### 
+0a9d                              0x79	# ####  # y
+0a9e                              0x76	# ### ##  v
+0a9f                              0x7f	# ####### 
+0aa0                              0x7e	# ######  ~
+0aa1                              0x7d	# ##### # }
+0aa2                              0xfe	########   
+0aa3                              0x06	#     ##   
+0aa4                              0xfa	###### #   
+0aa5                              0xfa	###### #   
+0aa6                              0xfa	###### #   
+0aa7                              0x7a	# #### #  z
+0aa8                              0xfa	###### #   
+0aa9                              0xfa	###### #   
+0aaa                              0x7d	# ##### # }
+0aab                              0x7f	# ####### 
+0aac                              0x7d	# ##### # }
+0aad                              0x7f	# ####### 
+0aae                              0x00	#          
+0aaf                              0x00	#          
+0ab0                              0x00	#          
+0ab1                              0x00	#          
+0ab2                              0xfa	###### #   
+0ab3                              0xfa	###### #   
+0ab4                              0xfc	#######    
+0ab5                              0xf8	######     
+0ab6                              0x00	#          
+0ab7                              0x00	#          
+0ab8                              0x00	#          
+0ab9                              0x00	#          
+0aba                              0x01	#       #  
+0abb                              0x03	#      ##  
+0abc                              0x03	#      ##  
+0abd                              0x07	#     ###  
+0abe                              0x07	#     ###  
+0abf                              0x07	#     ###  
+0ac0                              0x07	#     ###  
+0ac1                              0x07	#     ###  
+0ac2                              0x00	#          
+0ac3                              0x80	##         
+0ac4                              0x80	##         
+0ac5                              0xc0	###        
+0ac6                              0xc0	###        
+0ac7                              0xc0	###        
+0ac8                              0xc0	###        
+0ac9                              0xc0	###        
+0aca                              0x07	#     ###  
+0acb                              0x07	#     ###  
+0acc                              0x06	#     ##   
+0acd                              0x0c	#    ##    
+0ace                              0x0c	#    ##    
+0acf                              0x18	#   ##     
+0ad0                              0x18	#   ##     
+0ad1                              0x18	#   ##     
+0ad2                              0xc0	###        
+0ad3                              0xc0	###        
+0ad4                              0xc0	###        
+0ad5                              0x60	# ##      `
+0ad6                              0x70	# ###     p
+0ad7                              0x30	#  ##     0
+0ad8                              0x30	#  ##     0
+0ad9                              0x30	#  ##     0
+0ada : data0118                   0x00	#          
+0adb                              0x00	#          
+0adc                              0x12	#   #  #   
+0add                              0x6d	# ## ## # m
+0ade                              0xc9	###  #  #  
+0adf                              0xf2	#####  #   
+0ae0                              0xbc	## ####    
+0ae1                              0xb8	## ###     
+0ae2                              0x58	# # ##    X
+0ae3                              0x14	#   # #    
+0ae4                              0x14	#   # #    
+0ae5                              0x24	#  #  #   $
+0ae6                              0x00	#          
+0ae7                              0x00	#          
+0ae8                              0x00	#          
+0ae9                              0x6c	# ## ##   l
+0aea                              0x49	# #  #  # I
+0aeb                              0x72	# ###  #  r
+0aec                              0xbc	## ####    
+0aed                              0xb8	## ###     
+0aee                              0x58	# # ##    X
+0aef                              0x14	#   # #    
+0af0                              0x14	#   # #    
+0af1                              0x24	#  #  #   $
+0af2                              0x00	#          
+0af3                              0x00	#          
+0af4                              0xc8	###  #     
+0af5                              0x48	# #  #    H
+0af6                              0x48	# #  #    H
+0af7                              0x70	# ###     p
+0af8                              0x3c	#  ####   <
+0af9                              0x3a	#  ### #  :
+0afa                              0x58	# # ##    X
+0afb                              0x54	# # # #   T
+0afc                              0x92	##  #  #   
+0afd                              0x10	#   #      
+0afe : data0119                   0x01	#       #  
+0aff                              0x01	#       #  
+0b00                              0x01	#       #  
+0b01                              0x01	#       #  
+0b02                              0xfd	####### #  
+0b03                              0xff	#########  
+0b04                              0xfc	#######    
+0b05                              0x76	# ### ##  v
+0b06                              0x79	# ####  # y
+0b07                              0x39	#  ###  # 9
+0b08                              0x39	#  ###  # 9
+0b09                              0x00	#          
+0b0a                              0x04	#     #    
+0b0b                              0x04	#     #    
+0b0c                              0x02	#      #   
+0b0d                              0x02	#      #   
+0b0e                              0xfd	####### #  
+0b0f                              0xff	#########  
+0b10                              0xfc	#######    
+0b11                              0x76	# ### ##  v
+0b12                              0x79	# ####  # y
+0b13                              0x39	#  ###  # 9
+0b14                              0x39	#  ###  # 9
+0b15                              0x00	#          
+0b16                              0x10	#   #      
+0b17                              0x08	#    #     
+0b18                              0x04	#     #    
+0b19                              0x02	#      #   
+0b1a                              0xfd	####### #  
+0b1b                              0xff	#########  
+0b1c                              0xfc	#######    
+0b1d                              0x76	# ### ##  v
+0b1e                              0x79	# ####  # y
+0b1f                              0x39	#  ###  # 9
+0b20                              0x39	#  ###  # 9
+0b21                              0x00	#          
+0b22                              0xc0	###        
+0b23                              0x30	#  ##     0
+0b24                              0x0c	#    ##    
+0b25                              0x02	#      #   
+0b26                              0xfd	####### #  
+0b27                              0xff	#########  
+0b28                              0xfc	#######    
+0b29                              0x76	# ### ##  v
+0b2a                              0x79	# ####  # y
+0b2b                              0x39	#  ###  # 9
+0b2c                              0x39	#  ###  # 9
+0b2d                              0x00	#          
+0b2e                              0x00	#          
+0b2f                              0xe0	####       
+0b30                              0x1c	#   ###    
+0b31                              0x02	#      #   
+0b32                              0xfd	####### #  
+0b33                              0xff	#########  
+0b34                              0xfc	#######    
+0b35                              0x76	# ### ##  v
+0b36                              0x79	# ####  # y
+0b37                              0x39	#  ###  # 9
+0b38                              0x39	#  ###  # 9
+0b39                              0x00	#          
+0b3a                              0x00	#          
+0b3b                              0x00	#          
+0b3c                              0xe0	####       
+0b3d                              0x1e	#   ####   
+0b3e                              0xfd	####### #  
+0b3f                              0xff	#########  
+0b40                              0xfc	#######    
+0b41                              0x76	# ### ##  v
+0b42                              0x79	# ####  # y
+0b43                              0x39	#  ###  # 9
+0b44                              0x39	#  ###  # 9
+0b45                              0x00	#          
+0b46                              0x00	#          
+0b47                              0x00	#          
+0b48                              0x00	#          
+0b49                              0xfe	########   
+0b4a                              0xfd	####### #  
+0b4b                              0xff	#########  
+0b4c                              0xfc	#######    
+0b4d                              0x76	# ### ##  v
+0b4e                              0x79	# ####  # y
+0b4f                              0x39	#  ###  # 9
+0b50                              0x39	#  ###  # 9
+0b51                              0x00	#          
+0b52 : data0120                   0x00	#          
+0b53                              0x38	#  ###    8
+0b54                              0x74	# ### #   t
+0b55                              0xfe	########   
+0b56                              0xe0	####       
+0b57                              0xe0	####       
+0b58                              0xfe	########   
+0b59                              0x7e	# ######  ~
+0b5a                              0x28	#  # #    (
+0b5b                              0x28	#  # #    (
+0b5c                              0x28	#  # #    (
+0b5d                              0x7e	# ######  ~
+0b5e                              0x00	#          
+0b5f                              0x38	#  ###    8
+0b60                              0x74	# ### #   t
+0b61                              0xfe	########   
+0b62                              0xe0	####       
+0b63                              0xfc	#######    
+0b64                              0xfe	########   
+0b65                              0x7e	# ######  ~
+0b66                              0x28	#  # #    (
+0b67                              0x28	#  # #    (
+0b68                              0x7e	# ######  ~
+0b69                              0x00	#          
+0b6a                              0x00	#          
+0b6b                              0x38	#  ###    8
+0b6c                              0x74	# ### #   t
+0b6d                              0xfe	########   
+0b6e                              0xf8	######     
+0b6f                              0xfc	#######    
+0b70                              0xfe	########   
+0b71                              0x7e	# ######  ~
+0b72                              0x28	#  # #    (
+0b73                              0x7e	# ######  ~
+0b74                              0x00	#          
+0b75                              0x00	#          
+0b76 : data0121                   0x38	#  ###    8
+0b77                              0x6a	# ## # #  j
+0b78                              0x7e	# ######  ~
+0b79                              0x3e	#  #####  >
+0b7a                              0x12	#   #  #   
+0b7b                              0xb8	## ###     
+0b7c                              0xb8	## ###     
+0b7d                              0xfc	#######    
+0b7e                              0xa0	## #       
+0b7f                              0xbc	## ####    
+0b80                              0x38	#  ###    8
+0b81                              0x18	#   ##     
+0b82                              0x38	#  ###    8
+0b83                              0x6a	# ## # #  j
+0b84                              0x7e	# ######  ~
+0b85                              0x3e	#  #####  >
+0b86                              0x12	#   #  #   
+0b87                              0x38	#  ###    8
+0b88                              0xb8	## ###     
+0b89                              0xfc	#######    
+0b8a                              0xa0	## #       
+0b8b                              0x3c	#  ####   <
+0b8c                              0x38	#  ###    8
+0b8d                              0x18	#   ##     
+0b8e                              0x38	#  ###    8
+0b8f                              0x6a	# ## # #  j
+0b90                              0x7e	# ######  ~
+0b91                              0x3e	#  #####  >
+0b92                              0x12	#   #  #   
+0b93                              0x38	#  ###    8
+0b94                              0x38	#  ###    8
+0b95                              0xfc	#######    
+0b96                              0x30	#  ##     0
+0b97                              0x3c	#  ####   <
+0b98                              0x38	#  ###    8
+0b99                              0x18	#   ##     
+0b9a : data0122                   0x03	#      ##  
+0b9b                              0x00	#          
+0b9c                              0x1f	#   #####  
+0b9d                              0x00	#          
+0b9e                              0x3e	#  #####  >
+0b9f                              0x00	#          
+0ba0                              0x1a	#   ## #   
+0ba1                              0x00	#          
+0ba2                              0x1f	#   #####  
+0ba3                              0x00	#          
+0ba4                              0x1e	#   ####   
+0ba5                              0x00	#          
+0ba6                              0x0c	#    ##    
+0ba7                              0x00	#          
+0ba8                              0x1e	#   ####   
+0ba9                              0x00	#          
+0baa                              0x3f	#  ###### ?
+0bab                              0x00	#          
+0bac                              0x3f	#  ###### ?
+0bad                              0x00	#          
+0bae                              0x7b	# #### ## {
+0baf                              0x80	##         
+0bb0                              0x7d	# ##### # }
+0bb1                              0x80	##         
+0bb2                              0x1e	#   ####   
+0bb3                              0x00	#          
+0bb4                              0x3b	#  ### ## ;
+0bb5                              0x00	#          
+0bb6                              0x37	#  ## ### 7
+0bb7                              0x00	#          
+0bb8                              0x3b	#  ### ## ;
+0bb9                              0x80	##         
+0bba                              0x03	#      ##  
+0bbb                              0x00	#          
+0bbc                              0x1f	#   #####  
+0bbd                              0x00	#          
+0bbe                              0x3e	#  #####  >
+0bbf                              0x00	#          
+0bc0                              0x1a	#   ## #   
+0bc1                              0x00	#          
+0bc2                              0x1f	#   #####  
+0bc3                              0x00	#          
+0bc4                              0x1e	#   ####   
+0bc5                              0x00	#          
+0bc6                              0x0c	#    ##    
+0bc7                              0x00	#          
+0bc8                              0x1e	#   ####   
+0bc9                              0x00	#          
+0bca                              0x37	#  ## ### 7
+0bcb                              0x00	#          
+0bcc                              0x37	#  ## ### 7
+0bcd                              0x00	#          
+0bce                              0x37	#  ## ### 7
+0bcf                              0x00	#          
+0bd0                              0x3b	#  ### ## ;
+0bd1                              0x00	#          
+0bd2                              0x1e	#   ####   
+0bd3                              0x00	#          
+0bd4                              0x0c	#    ##    
+0bd5                              0x00	#          
+0bd6                              0x0c	#    ##    
+0bd7                              0x00	#          
+0bd8                              0x0e	#    ###   
+0bd9                              0x00	#          
+0bda                              0x03	#      ##  
+0bdb                              0x00	#          
+0bdc                              0x1f	#   #####  
+0bdd                              0x00	#          
+0bde                              0x3e	#  #####  >
+0bdf                              0x00	#          
+0be0                              0x1a	#   ## #   
+0be1                              0x00	#          
+0be2                              0x1f	#   #####  
+0be3                              0x00	#          
+0be4                              0x1e	#   ####   
+0be5                              0x00	#          
+0be6                              0x0c	#    ##    
+0be7                              0x00	#          
+0be8                              0x1e	#   ####   
+0be9                              0x00	#          
+0bea                              0x3f	#  ###### ?
+0beb                              0x00	#          
+0bec                              0x3f	#  ###### ?
+0bed                              0x00	#          
+0bee                              0x7b	# #### ## {
+0bef                              0x80	##         
+0bf0                              0x7d	# ##### # }
+0bf1                              0x80	##         
+0bf2                              0x1e	#   ####   
+0bf3                              0x00	#          
+0bf4                              0x3b	#  ### ## ;
+0bf5                              0x00	#          
+0bf6                              0x37	#  ## ### 7
+0bf7                              0x00	#          
+0bf8                              0x3b	#  ### ## ;
+0bf9                              0x80	##         
+0bfa                              0x03	#      ##  
+0bfb                              0x00	#          
+0bfc                              0x1f	#   #####  
+0bfd                              0x00	#          
+0bfe                              0x3e	#  #####  >
+0bff                              0x00	#          
+0c00                              0x1a	#   ## #   
+0c01                              0x00	#          
+0c02                              0x1f	#   #####  
+0c03                              0x00	#          
+0c04                              0x1e	#   ####   
+0c05                              0x00	#          
+0c06                              0x0c	#    ##    
+0c07                              0x00	#          
+0c08                              0x1e	#   ####   
+0c09                              0x00	#          
+0c0a                              0x3f	#  ###### ?
+0c0b                              0x00	#          
+0c0c                              0x7f	# ####### 
+0c0d                              0x80	##         
+0c0e                              0xff	#########  
+0c0f                              0xc0	###        
+0c10                              0xde	### ####   
+0c11                              0xc0	###        
+0c12                              0x1f	#   #####  
+0c13                              0x00	#          
+0c14                              0x3b	#  ### ## ;
+0c15                              0x40	# #       @
+0c16                              0x61	# ##    # a
+0c17                              0xc0	###        
+0c18                              0x71	# ###   # q
+0c19                              0x80	##         
+0c1a                              0x03	#      ##  
+0c1b                              0x00	#          
+0c1c                              0x1f	#   #####  
+0c1d                              0x00	#          
+0c1e                              0x3e	#  #####  >
+0c1f                              0x00	#          
+0c20                              0x1a	#   ## #   
+0c21                              0x00	#          
+0c22                              0x1f	#   #####  
+0c23                              0x00	#          
+0c24                              0x1e	#   ####   
+0c25                              0x00	#          
+0c26                              0x0c	#    ##    
+0c27                              0x00	#          
+0c28                              0x1e	#   ####   
+0c29                              0x00	#          
+0c2a                              0x37	#  ## ### 7
+0c2b                              0x00	#          
+0c2c                              0x37	#  ## ### 7
+0c2d                              0x00	#          
+0c2e                              0x37	#  ## ### 7
+0c2f                              0x00	#          
+0c30                              0x3b	#  ### ## ;
+0c31                              0x00	#          
+0c32                              0x1e	#   ####   
+0c33                              0x00	#          
+0c34                              0x0c	#    ##    
+0c35                              0x00	#          
+0c36                              0x0c	#    ##    
+0c37                              0x00	#          
+0c38                              0x0e	#    ###   
+0c39                              0x00	#          
+0c3a : data0123                   0x30	#  ##     0
+0c3b                              0x00	#          
+0c3c                              0x3e	#  #####  >
+0c3d                              0x00	#          
+0c3e                              0x1f	#   #####  
+0c3f                              0x00	#          
+0c40                              0x16	#   # ##   
+0c41                              0x00	#          
+0c42                              0x3e	#  #####  >
+0c43                              0x00	#          
+0c44                              0x1e	#   ####   
+0c45                              0x00	#          
+0c46                              0x0c	#    ##    
+0c47                              0x00	#          
+0c48                              0x1e	#   ####   
+0c49                              0x00	#          
+0c4a                              0x3f	#  ###### ?
+0c4b                              0x00	#          
+0c4c                              0x3f	#  ###### ?
+0c4d                              0x00	#          
+0c4e                              0x77	# ### ### w
+0c4f                              0x80	##         
+0c50                              0x6f	# ## #### o
+0c51                              0x80	##         
+0c52                              0x1e	#   ####   
+0c53                              0x00	#          
+0c54                              0x37	#  ## ### 7
+0c55                              0x00	#          
+0c56                              0x3b	#  ### ## ;
+0c57                              0x00	#          
+0c58                              0x77	# ### ### w
+0c59                              0x00	#          
+0c5a                              0x30	#  ##     0
+0c5b                              0x00	#          
+0c5c                              0x3e	#  #####  >
+0c5d                              0x00	#          
+0c5e                              0x1f	#   #####  
+0c5f                              0x00	#          
+0c60                              0x16	#   # ##   
+0c61                              0x00	#          
+0c62                              0x3e	#  #####  >
+0c63                              0x00	#          
+0c64                              0x1e	#   ####   
+0c65                              0x00	#          
+0c66                              0x0c	#    ##    
+0c67                              0x00	#          
+0c68                              0x1e	#   ####   
+0c69                              0x00	#          
+0c6a                              0x3b	#  ### ## ;
+0c6b                              0x00	#          
+0c6c                              0x3b	#  ### ## ;
+0c6d                              0x00	#          
+0c6e                              0x3b	#  ### ## ;
+0c6f                              0x00	#          
+0c70                              0x37	#  ## ### 7
+0c71                              0x00	#          
+0c72                              0x1e	#   ####   
+0c73                              0x00	#          
+0c74                              0x0c	#    ##    
+0c75                              0x00	#          
+0c76                              0x0c	#    ##    
+0c77                              0x00	#          
+0c78                              0x1c	#   ###    
+0c79                              0x00	#          
+0c7a                              0x30	#  ##     0
+0c7b                              0x00	#          
+0c7c                              0x3e	#  #####  >
+0c7d                              0x00	#          
+0c7e                              0x1f	#   #####  
+0c7f                              0x00	#          
+0c80                              0x16	#   # ##   
+0c81                              0x00	#          
+0c82                              0x3e	#  #####  >
+0c83                              0x00	#          
+0c84                              0x1e	#   ####   
+0c85                              0x00	#          
+0c86                              0x0c	#    ##    
+0c87                              0x00	#          
+0c88                              0x1e	#   ####   
+0c89                              0x00	#          
+0c8a                              0x3f	#  ###### ?
+0c8b                              0x00	#          
+0c8c                              0x3f	#  ###### ?
+0c8d                              0x00	#          
+0c8e                              0x77	# ### ### w
+0c8f                              0x80	##         
+0c90                              0x6f	# ## #### o
+0c91                              0x80	##         
+0c92                              0x1e	#   ####   
+0c93                              0x00	#          
+0c94                              0x37	#  ## ### 7
+0c95                              0x00	#          
+0c96                              0x3b	#  ### ## ;
+0c97                              0x00	#          
+0c98                              0x77	# ### ### w
+0c99                              0x00	#          
+0c9a                              0x30	#  ##     0
+0c9b                              0x00	#          
+0c9c                              0x3e	#  #####  >
+0c9d                              0x00	#          
+0c9e                              0x1f	#   #####  
+0c9f                              0x00	#          
+0ca0                              0x16	#   # ##   
+0ca1                              0x00	#          
+0ca2                              0x3e	#  #####  >
+0ca3                              0x00	#          
+0ca4                              0x1e	#   ####   
+0ca5                              0x00	#          
+0ca6                              0x0c	#    ##    
+0ca7                              0x00	#          
+0ca8                              0x1e	#   ####   
+0ca9                              0x00	#          
+0caa                              0x3f	#  ###### ?
+0cab                              0x00	#          
+0cac                              0x7f	# ####### 
+0cad                              0x80	##         
+0cae                              0xff	#########  
+0caf                              0xc0	###        
+0cb0                              0xde	### ####   
+0cb1                              0xc0	###        
+0cb2                              0x3e	#  #####  >
+0cb3                              0x00	#          
+0cb4                              0xb7	## ## ###  
+0cb5                              0x00	#          
+0cb6                              0xe1	####    #  
+0cb7                              0x80	##         
+0cb8                              0x63	# ##   ## c
+0cb9                              0x80	##         
+0cba                              0x30	#  ##     0
+0cbb                              0x00	#          
+0cbc                              0x3e	#  #####  >
+0cbd                              0x00	#          
+0cbe                              0x1f	#   #####  
+0cbf                              0x00	#          
+0cc0                              0x16	#   # ##   
+0cc1                              0x00	#          
+0cc2                              0x3e	#  #####  >
+0cc3                              0x00	#          
+0cc4                              0x1e	#   ####   
+0cc5                              0x00	#          
+0cc6                              0x0c	#    ##    
+0cc7                              0x00	#          
+0cc8                              0x1e	#   ####   
+0cc9                              0x00	#          
+0cca                              0x3b	#  ### ## ;
+0ccb                              0x00	#          
+0ccc                              0x3b	#  ### ## ;
+0ccd                              0x00	#          
+0cce                              0x3b	#  ### ## ;
+0ccf                              0x00	#          
+0cd0                              0x37	#  ## ### 7
+0cd1                              0x00	#          
+0cd2                              0x1e	#   ####   
+0cd3                              0x00	#          
+0cd4                              0x0c	#    ##    
+0cd5                              0x00	#          
+0cd6                              0x0c	#    ##    
+0cd7                              0x00	#          
+0cd8                              0x1c	#   ###    
+0cd9                              0x00	#          
+0cda : data0124                   0xe0	####       
+0cdb                              0xa0	## #       
+0cdc                              0xe0	####       
+0cdd                              0xa0	## #       
+0cde                              0xa0	## #       
+0cdf                              0xe0	####       
+0ce0                              0xa0	## #       
+0ce1                              0xc0	###        
+0ce2                              0xa0	## #       
+0ce3                              0xe0	####       
+0ce4                              0x60	# ##      `
+0ce5                              0x80	##         
+0ce6                              0x80	##         
+0ce7                              0x80	##         
+0ce8                              0x60	# ##      `
+0ce9                              0xc0	###        
+0cea                              0xa0	## #       
+0ceb                              0xa0	## #       
+0cec                              0xa0	## #       
+0ced                              0xe0	####       
+0cee                              0xe0	####       
+0cef                              0x80	##         
+0cf0                              0xc0	###        
+0cf1                              0x80	##         
+0cf2                              0xe0	####       
+0cf3                              0xe0	####       
+0cf4                              0x80	##         
+0cf5                              0xc0	###        
+0cf6                              0x80	##         
+0cf7                              0x80	##         
+0cf8                              0x60	# ##      `
+0cf9                              0x80	##         
+0cfa                              0x80	##         
+0cfb                              0xa0	## #       
+0cfc                              0xe0	####       
+0cfd                              0xa0	## #       
+0cfe                              0xa0	## #       
+0cff                              0xe0	####       
+0d00                              0xa0	## #       
+0d01                              0xa0	## #       
+0d02                              0xe0	####       
+0d03                              0x40	# #       @
+0d04                              0x40	# #       @
+0d05                              0x40	# #       @
+0d06                              0xe0	####       
+0d07                              0xe0	####       
+0d08                              0x40	# #       @
+0d09                              0x40	# #       @
+0d0a                              0x40	# #       @
+0d0b                              0xc0	###        
+0d0c                              0xa0	## #       
+0d0d                              0xa0	## #       
+0d0e                              0xc0	###        
+0d0f                              0xa0	## #       
+0d10                              0xa0	## #       
+0d11                              0x80	##         
+0d12                              0x80	##         
+0d13                              0x80	##         
+0d14                              0x80	##         
+0d15                              0xe0	####       
+0d16                              0xe0	####       
+0d17                              0xe0	####       
+0d18                              0xa0	## #       
+0d19                              0xa0	## #       
+0d1a                              0xa0	## #       
+0d1b                              0xc0	###        
+0d1c                              0xa0	## #       
+0d1d                              0xa0	## #       
+0d1e                              0xa0	## #       
+0d1f                              0xa0	## #       
+0d20                              0x60	# ##      `
+0d21                              0xa0	## #       
+0d22                              0xa0	## #       
+0d23                              0xa0	## #       
+0d24                              0xc0	###        
+0d25                              0xe0	####       
+0d26                              0xa0	## #       
+0d27                              0xe0	####       
+0d28                              0x80	##         
+0d29                              0x80	##         
+0d2a                              0x40	# #       @
+0d2b                              0xa0	## #       
+0d2c                              0xa0	## #       
+0d2d                              0xc0	###        
+0d2e                              0x60	# ##      `
+0d2f                              0xe0	####       
+0d30                              0xa0	## #       
+0d31                              0xc0	###        
+0d32                              0xa0	## #       
+0d33                              0xa0	## #       
+0d34                              0x60	# ##      `
+0d35                              0x80	##         
+0d36                              0xe0	####       
+0d37                              0x20	#  #       
+0d38                              0xc0	###        
+0d39                              0xe0	####       
+0d3a                              0x40	# #       @
+0d3b                              0x40	# #       @
+0d3c                              0x40	# #       @
+0d3d                              0x40	# #       @
+0d3e                              0xa0	## #       
+0d3f                              0xa0	## #       
+0d40                              0xa0	## #       
+0d41                              0xa0	## #       
+0d42                              0x60	# ##      `
+0d43                              0xa0	## #       
+0d44                              0xa0	## #       
+0d45                              0xa0	## #       
+0d46                              0xe0	####       
+0d47                              0x40	# #       @
+0d48                              0xa0	## #       
+0d49                              0xa0	## #       
+0d4a                              0xa0	## #       
+0d4b                              0xe0	####       
+0d4c                              0xe0	####       
+0d4d                              0xa0	## #       
+0d4e                              0xa0	## #       
+0d4f                              0x40	# #       @
+0d50                              0xa0	## #       
+0d51                              0xa0	## #       
+0d52                              0xa0	## #       
+0d53                              0xa0	## #       
+0d54                              0xe0	####       
+0d55                              0x20	#  #       
+0d56                              0xe0	####       
+0d57                              0xe0	####       
+0d58                              0x20	#  #       
+0d59                              0x40	# #       @
+0d5a                              0x80	##         
+0d5b                              0xe0	####       
+0d5c                              0x00	#          
+0d5d                              0xe0	####       
+0d5e                              0xa0	## #       
+0d5f                              0xe0	####       
+0d60                              0xa0	## #       
+0d61                              0x00	#          
+0d62                              0xc0	###        
+0d63                              0xe0	####       
+0d64                              0xa0	## #       
+0d65                              0xe0	####       
+0d66                              0x00	#          
+0d67                              0xe0	####       
+0d68                              0x80	##         
+0d69                              0x80	##         
+0d6a                              0xe0	####       
+0d6b                              0x00	#          
+0d6c                              0xc0	###        
+0d6d                              0xa0	## #       
+0d6e                              0xa0	## #       
+0d6f                              0xc0	###        
+0d70                              0x00	#          
+0d71                              0xe0	####       
+0d72                              0xc0	###        
+0d73                              0x80	##         
+0d74                              0xe0	####       
+0d75                              0x00	#          
+0d76                              0xe0	####       
+0d77                              0xc0	###        
+0d78                              0x80	##         
+0d79                              0x80	##         
+0d7a                              0x00	#          
+0d7b                              0xe0	####       
+0d7c                              0x80	##         
+0d7d                              0xa0	## #       
+0d7e                              0xe0	####       
+0d7f                              0x00	#          
+0d80                              0xa0	## #       
+0d81                              0xa0	## #       
+0d82                              0xe0	####       
+0d83                              0xa0	## #       
+0d84                              0x00	#          
+0d85                              0xe0	####       
+0d86                              0x40	# #       @
+0d87                              0x40	# #       @
+0d88                              0xe0	####       
+0d89                              0x00	#          
+0d8a                              0xe0	####       
+0d8b                              0x40	# #       @
+0d8c                              0x40	# #       @
+0d8d                              0xc0	###        
+0d8e                              0x00	#          
+0d8f                              0xa0	## #       
+0d90                              0xc0	###        
+0d91                              0xa0	## #       
+0d92                              0xa0	## #       
+0d93                              0x00	#          
+0d94                              0x80	##         
+0d95                              0x80	##         
+0d96                              0x80	##         
+0d97                              0xe0	####       
+0d98                              0x00	#          
+0d99                              0xe0	####       
+0d9a                              0xe0	####       
+0d9b                              0xa0	## #       
+0d9c                              0xa0	## #       
+0d9d                              0x00	#          
+0d9e                              0xc0	###        
+0d9f                              0xa0	## #       
+0da0                              0xa0	## #       
+0da1                              0xa0	## #       
+0da2                              0x00	#          
+0da3                              0x60	# ##      `
+0da4                              0xa0	## #       
+0da5                              0xa0	## #       
+0da6                              0xc0	###        
+0da7                              0x00	#          
+0da8                              0xe0	####       
+0da9                              0xa0	## #       
+0daa                              0xe0	####       
+0dab                              0x80	##         
+0dac                              0x00	#          
+0dad                              0x40	# #       @
+0dae                              0xa0	## #       
+0daf                              0xc0	###        
+0db0                              0x60	# ##      `
+0db1                              0x00	#          
+0db2                              0xe0	####       
+0db3                              0xa0	## #       
+0db4                              0xc0	###        
+0db5                              0xa0	## #       
+0db6                              0x00	#          
+0db7                              0x60	# ##      `
+0db8                              0x80	##         
+0db9                              0x20	#  #       
+0dba                              0xc0	###        
+0dbb                              0x00	#          
+0dbc                              0xe0	####       
+0dbd                              0x40	# #       @
+0dbe                              0x40	# #       @
+0dbf                              0x40	# #       @
+0dc0                              0x00	#          
+0dc1                              0xa0	## #       
+0dc2                              0xa0	## #       
+0dc3                              0xa0	## #       
+0dc4                              0x60	# ##      `
+0dc5                              0x00	#          
+0dc6                              0xa0	## #       
+0dc7                              0xa0	## #       
+0dc8                              0xe0	####       
+0dc9                              0x40	# #       @
+0dca                              0x00	#          
+0dcb                              0xa0	## #       
+0dcc                              0xa0	## #       
+0dcd                              0xe0	####       
+0dce                              0xe0	####       
+0dcf                              0x00	#          
+0dd0                              0xa0	## #       
+0dd1                              0x40	# #       @
+0dd2                              0xa0	## #       
+0dd3                              0xa0	## #       
+0dd4                              0x00	#          
+0dd5                              0xa0	## #       
+0dd6                              0xe0	####       
+0dd7                              0x20	#  #       
+0dd8                              0xe0	####       
+0dd9                              0x00	#          
+0dda                              0xe0	####       
+0ddb                              0x20	#  #       
+0ddc                              0x80	##         
+0ddd                              0xe0	####       

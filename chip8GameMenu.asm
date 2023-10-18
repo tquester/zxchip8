@@ -11,7 +11,6 @@ chip8GameMenu:
         ld              hl,chip8Games
 
 chip8GameMenuLoop:
-
         ld              a,(hl)
         cp              0
         jr              z,chip8GameMenuWait

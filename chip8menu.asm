@@ -98,6 +98,8 @@ menuSetZoom:
 menuStartGame:
         ld      iy,chip8Memory+0x200
 menuQuitToGame:
+        ld      a,1
+        ld      (screenOnOff),a
         call    clearScreen
         call    updateGameScreen    
         call    printMenuHint    

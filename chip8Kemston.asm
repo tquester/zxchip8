@@ -232,7 +232,7 @@ kempstonMap:    db      kempstonLeft,'A'
                 db      kempstonUp,'W'
                 db      kempstonDown,'S'
                 db      kempstonFire,'Z'
-kempstonOn:     db      1
+kempstonOn:     db      0
 
 strOn:  db "on ",0
 strOff: db "off",0

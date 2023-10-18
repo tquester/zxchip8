@@ -1320,7 +1320,7 @@ checkDEisInScreenErr:
 
 ; ----------------- draw sprite schip 
 
-screenOnOff:            db 0
+screenOnOff:            db 1
 screen_width:           db 64                   ; pixel width of screen
 screen_height:          db 32                   ; number of lines of screen
 screen_widthbytes:      db 8                    ; number of bytes per row

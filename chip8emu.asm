@@ -250,6 +250,7 @@ bigfont:
 fontsize 		equ  $-chip8Memory
 
 				defs	$200-fontsize,0
+;    incbin "C:\Users\Admin\git\J-Octo-Chip8-IDE\samples\minegame_tileedit.ch8"
 ;	incbin "samples/EnterTheMine.ch8"
 ;	incbin "D:\Emulator\chip8\chip8roms\Chip8-04-01-2022\Verisimilitudes\Asphyxiation (Verisimilitudes)(2020).ch8"
 ;		incbin "D:/Emulator/chip8/chip8roms/UPDATE-Jan-26-2021/Schip Games/Turm8 (Tobias V. Langhoff)(2020).sc8"
@@ -295,6 +296,9 @@ fontsize 		equ  $-chip8Memory
 chip8InitGameLen equ $-chip8Memory
 
 		defs 4096 - chip8InitGameLen,0
+		defs 200
+
+totalMemLen equ $-chip8Memory		
 
 initGameInfo:
 		incbin "intro.txt"
@@ -319,8 +323,12 @@ romCollection:
 
 
 
-chip8Games:	
-
+chip8Games:		db   	"Enter the mine (TQ)",0
+				incbin "samples/EnterTheMine.txt"
+				db		0
+chipGames0:		dw		chipGames0X-chipGames0
+				incbin "C:\Users\Admin\git\J-Octo-Chip8-IDE\samples\EnterTheMine.ch8"
+chipGames0X:
 				db		"Brix by Andras Gustafsson",0
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/1-Manuals/Brix.txt"
 				db		0
@@ -364,33 +372,28 @@ chip8Game6X
 				db 		0
 chip8Game7:		dw		chip8Game7X-chip8Game7
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Minesweep8r (James Kohli aka Hottie Pippen)(2014).ch8"
-chip8Game7X		/*db		"Missile Command ",0
+chip8Game7X		/*
+
+				db		"Missile Command ",0
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/1-Manuals/Missile Command.txt"
 				db 		0
 chip8Game8:		dw		chip8Game8X-chip8Game8
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/Missile Command (by David Winter)(19xx).ch8"
-				*/
-chip8Game8X		db		"Enter the mine",0
-				incbin "samples/EnterTheMine.txt"
-				db 		0
-chip8Game9:		dw		chip8Game9X-chip8Game9				
-				incbin "samples/EnterTheMine.ch8"
-chip8Game9X 	/*
+chip8Game8X		
 
 				db		"The maze",0
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/1-Manuals/The Maze.txt"
 				db 		0
 chip8Game10:	dw		chip8Game10X-chip8Game10	
 				incbin "D:/Emulator/chip8/chip8roms/Chip-8-Games/0-Games/The Maze (Ian Schert)(2020).ch8"		
-chip8Game10X:	*/
+				*/
+chip8Game10X:	db		0,0,0,0
 	
 romCollectionSize equ $-romCollection
 chip8Game11X:	
 				db		0,0
 								
-
-
-				db		0,0															
+														
 
 
 
